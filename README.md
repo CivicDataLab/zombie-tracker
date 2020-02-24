@@ -7,7 +7,7 @@
 ### Reading Links:
 
 - [Shreya Singhal vs U.O.I on 24 March, 2015](https://indiankanoon.org/doc/110813550/)
-- [Our thoughts](https://medium.com/civicdatalab/a-data-driven-approach-to-curb-the-zombie-that-is-66a-1578d955ad4b?postPublishedType=initial)
+- [Project Scope](https://medium.com/civicdatalab/a-data-driven-approach-to-curb-the-zombie-that-is-66a-1578d955ad4b?postPublishedType=initial)
 - Sekhri, Abhinav and Gupta, Apar, Section 66A and Other Legal Zombies (October 31, 2018). IFF Working Paper No. 2/2018. . Available at SSRN: https://ssrn.com/abstract=3275893 or http://dx.doi.org/10.2139/ssrn.3275893 
 - [Internet Freedom Foundation - Blog](https://internetfreedom.in/tag/66a/)
 
