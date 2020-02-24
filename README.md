@@ -18,5 +18,6 @@
 [<img src="assets/img/iff-logo.jpg" width="200" />](https://internetfreedom.in/)
 
 
-With support from the [Tech4Dev grant](https://chintugudiya.org/tech4dev) of the [Chintu Gudiya Foundation](https://chintugudiya.org/)
+### Supported by
 
+[Tech4Dev grant](https://chintugudiya.org/tech4dev) by the [Chintu Gudiya Foundation](https://chintugudiya.org/)
