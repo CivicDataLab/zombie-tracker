@@ -15,7 +15,7 @@
 ### Organisations involved
 
 [<img src="assets/img/CDL_Primary_Logo.png" width="200" />](https://civicdatalab.in/) 
-[<img src="assets/img/iff-logo.jpg" width="200" />](https://internetfreedom.in/)
+[<img src="assets/img/iff_logo_vertical_black.png" width="200" />](https://internetfreedom.in/)
 
 
 ### Supported by
