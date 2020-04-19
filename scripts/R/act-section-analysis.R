@@ -16,7 +16,7 @@ extract_act_and_section <- function(act_json){
 
 jh_data <-
   read_csv(
-    "exp/repos/stop-66A/data/jharkhand_data_report_IT_act.csv",
+    "data/jharkhand_data_report_IT_act.csv",
     col_types = cols(
       date_of_filing = col_date(format = "%Y-%m-%d"),
       date_of_registration = col_date(format = "%Y-%m-%d")
@@ -33,7 +33,7 @@ for(i in 1:nrow(jh_data)){
   print(glue("{i} -- {jh_data$CNR[[i]]}"))
 }
 
-write_csv(act_master, "~/exp/repos/stop-66A/data/jh_act_section_cnr.csv")
+write_csv(act_master, "data/jh_act_section_cnr.csv")
 
 # act_json <- jh_data$act_json[sample(nrow(jh_data),1)]
 # x <- extract_act_and_section(act_json)
