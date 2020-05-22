@@ -1,7 +1,4 @@
-library(dplyr,warn.conflicts = FALSE)
-library(jsonlite)
-library(readr)
-library(glue)
+source("scripts/R/libraries.R")
 
 extract_act_and_section <- function(act_json){
   act_list <- jsonlite::fromJSON(act_json)

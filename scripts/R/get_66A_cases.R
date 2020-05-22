@@ -1,3 +1,5 @@
+source("scripts/R/libraries.R")
+
 jh_act_section <- read_csv("data/jh_act_section_cnr.csv")
 
 patterns_66 <- jh_act_section[grepl(jh_act_section$section_id,pattern = "66"),]

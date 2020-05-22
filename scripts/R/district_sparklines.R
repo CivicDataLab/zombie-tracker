@@ -1,7 +1,4 @@
-library(dplyr,warn.conflicts = FALSE)
-library(readr)
-library(glue)
-library(tidyr)
+source("scripts/R/libraries.R")
 
 jh_cases_66a <- read_csv(
   "data/jh_cases_66a.csv",
