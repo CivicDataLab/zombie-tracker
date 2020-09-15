@@ -1,0 +1,24 @@
+---
+title: "zombie-tracker"
+author: "CivicDataLab"
+date: "11/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Source Files }
+source("scripts/R/libraries.R")
+source("scripts/R/connect-db.R")
+```
+
+
+```{sql connection=con}
+select * from case_details limit 1
+```
+
+
+
+
