@@ -16,6 +16,6 @@ WHERE table_schema = 'public'
 AND table_name = {quote(table_name)}
 ORDER BY column_name ASC"
     )
-  )
+  ) %>% unique()
   return(all_cols)
 }
