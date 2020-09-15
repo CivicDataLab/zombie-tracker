@@ -10,14 +10,58 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r Source Files }
-source("scripts/R/libraries.R")
-source("scripts/R/connect-db.R")
+source("../R/libraries.R")
+source("../R/connect-db.R")
+```
+
+```{r}
+all_tables <- dbxSelect(con,
+                          "SELECT table_name FROM information_schema.tables
+                 WHERE table_schema='public'") 
 ```
 
 
 ```{sql connection=con}
-select * from case_details limit 1
+select is66a, count(is66a) from iff_db_case_details group by is66a
 ```
+
+```{sql connection=con, output.var='case_details_66a'}
+select cino, date_of_filing, dt_regis, date_of_decision, disp_name, disp_nature, state_name, district_name from iff_db_case_details where is66a='TRUE' 
+```
+
+```{r}
+case_details_66a$case_status <- 'pending'
+case_details_66a$case_status[!case_details_66a$disp_nature %in% '0'] <- 'disposed'
+```
+
+```{r case_pendency_table}
+
+years <- seq(2009, 2020)
+
+# for_year <- years[1]
+case_pendency_calculator <- function(for_year) {
+  
+  total_cases_registered <-
+    case_details_66a[year(case_details_66a$dt_regis) == for_year, ] %>% nrow()
+  
+  earlier_pending_cases_disposed <- case_details_66a %>% filter(year(dt_regis) < for_year) %>% filter(!is.na(date_of_decision)) %>% filter(year(date_of_decision) >= for_year) %>% nrow()
+
+  earlier_pending_cases_pending <- case_details_66a %>% filter(year(dt_regis) < for_year) %>% filter(case_status == 'pending') %>% nrow()
+
+  earlier_cases <- earlier_pending_cases_pending + earlier_pending_cases_disposed
+  
+  cases_disposed_year <-
+    case_details_66a %>% filter(!is.na(date_of_decision)) %>% filter(year(date_of_decision) == for_year) %>% nrow()
+    
+  cases_list <- list(year=for_year, cases_registered=total_cases_registered, earlier_cases=earlier_cases, disposed_cases=cases_disposed_year, total_pendency_at_year_end=total_cases_registered+earlier_cases-cases_disposed_year)
+  
+  return(cases_list)
+}
+
+case_pendency_list <- lapply(years, case_pendency_calculator) %>% bind_rows()
+
+```
+
 
 
 
