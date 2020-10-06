@@ -1,0 +1,24 @@
+.col-to-row{
+   display: flex;
+}
+
+@media screen and (max-width: 767px) {
+	.col-to-row{
+	   display: block;
+	}
+}
+
+.row-section{
+	background: #80808038;
+	margin-bottom:20px;
+        min-height: 15vh;
+        text-align:center;
+        align-items:center;
+        justify-content:center;
+}
+
+.img-fluid{
+    width:100%;
+    height:auto;
+
+}

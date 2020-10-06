@@ -1,0 +1,11 @@
+import { Handler, HookReturnType, UsePinchConfig } from '../types';
+/**
+ * @public
+ *
+ * Pinch hook.
+ *
+ * @param {Handler<'pinch'>} handler - the function fired every time the pinch gesture updates
+ * @param {(Config | {})} [config={}] - the config object including generic options and pinch options
+ * @returns {(...args: any[]) => HookReturnType<Config>}
+ */
+export declare function usePinch<Config extends UsePinchConfig>(handler: Handler<'pinch'>, config?: Config | {}): (...args: any[]) => HookReturnType<Config>;

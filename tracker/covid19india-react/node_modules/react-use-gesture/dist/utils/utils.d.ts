@@ -1,0 +1,9 @@
+import { Fn, Vector2 } from '../types';
+export declare function noop(): void;
+export declare const chainFns: (...fns: Fn[]) => Fn;
+export declare const def: {
+    array: <T>(value: T | T[]) => T[];
+    withDefault: <T_1>(value: T_1 | undefined, defaultIfUndefined: T_1) => T_1;
+};
+export declare function matchKeysFromObject<T extends object, K extends object>(obj: T, matchingObject: K): Partial<T>;
+export declare function valueFn(v: Vector2 | (() => Vector2)): import("../types").Tuple<number>;

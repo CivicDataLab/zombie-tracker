@@ -1,0 +1,50 @@
+export declare function addV<T extends number[]>(v1: T, v2: T): T;
+export declare function subV<T extends number[]>(v1: T, v2: T): T;
+/**
+ * Calculates velocity
+ * @param delta the difference between current and previous vectors
+ * @param delta_t the time offset
+ * @param len the length of the delta vector
+ * @returns velocity
+ */
+export declare function calculateVelocity(delta: number[], delta_t: number, len: number): number;
+/**
+ * Calculates velocities vector
+ * @template T the expected vector type
+ * @param delta the difference between current and previous vectors
+ * @param delta_t the time offset
+ * @returns velocities vector
+ */
+export declare function calculateVelocities<T extends number[]>(delta: T, delta_t: number): T;
+/**
+ * Calculates distance
+ * @param movement the difference between current and initial vectors
+ * @returns distance
+ */
+export declare function calculateDistance(movement: number[]): number;
+/**
+ * Calculates direction
+ * @template T the expected vector type
+ * @param delta
+ * @param len
+ * @returns direction
+ */
+export declare function calculateDirection<T extends number[]>(delta: T, len?: number): T;
+interface Kinematics<T extends number[]> {
+    velocities: T;
+    velocity: number;
+    distance: number;
+    direction: T;
+}
+/**
+ * Calculates all kinematics
+ * @template T the expected vector type
+ * @param movement the difference between current and initial vectors
+ * @param delta the difference between current and previous vectors
+ * @param delta_t the time difference between current and previous timestamps
+ * @returns all kinematics
+ */
+export declare function calculateAllKinematics<T extends number[]>(movement: T, delta: T, delta_t: number): Kinematics<T>;
+export declare function getIntentionalDisplacement(movement: number, threshold: number): number | false;
+export declare function rubberbandIfOutOfBounds(position: number, min: number, max: number, constant?: number): number;
+export {};

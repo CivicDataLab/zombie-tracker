@@ -1,0 +1,11 @@
+import { UserHandlersPartial, UseGestureConfig, HookReturnType } from '../types';
+/**
+ * @public
+ *
+ * The most complete gesture hook, allowing support for multiple gestures.
+ *
+ * @param {UserHandlersPartial} handlers - an object with on[Gesture] keys containg gesture handlers
+ * @param {UseGestureConfig} [config={}] - the full config object
+ * @returns {(...args: any[]) => HookReturnType<Config>}
+ */
+export declare function useGesture<Config extends UseGestureConfig>(handlers: UserHandlersPartial, config?: UseGestureConfig): (...args: any[]) => HookReturnType<Config>;
