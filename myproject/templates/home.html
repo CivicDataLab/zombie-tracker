@@ -10,14 +10,14 @@
 {% endblock css_files %} 
 
 {% block content %}
-     <div class="row-section" style="padding:0; display:none;">{% placeholder "desc" %}</div>
-     <div class="container col-to-row" style="margin: 4em auto;">
+     <div class="row-section" style="display:none;">{% placeholder "desc" %}</div>
+     <div class="container col-to-row">
         <div>{% placeholder "desc1" %}</div>
      </div>
      <div class="row-section" style="padding:0; display:none;">{% placeholder "timeline" %}</div>
 
     
-    <div class="container" style="background:#dcd4cd; border-radius:20px; margin: 4em auto">
+    <div class="container">
     <section class="timeline-section">
       <div class="timeline__header">
         <h1 class="timeline__header__title">Timeline of Section 66A</h1>
@@ -110,11 +110,11 @@
     </section>
     </div>
     
-    <div class="row-section container" style="margin: 4em auto">{% placeholder "desc2" %}</div> 
+    <div class="row-section container">{% placeholder "desc2" %}</div> 
 
 
-     <div class="container col-to-row" style="padding:0; margin: 2.5em auto">
-     	<div class="col-lg-12 row-section dark-block" style="margin: auto;">{% placeholder "latestpost" %}</div>
+     <div class="container col-to-row">
+     	<div class="col-lg-12 row-section dark-block">{% placeholder "latestpost" %}</div>
 	<!-- <div  class="col-lg-6 col-sm-12 row-section dark-block">{% placeholder "exploremore" %}</div> -->
      </div>
 {% endblock content %}
