@@ -1,0 +1,103 @@
+{% load cms_tags menu_tags sekizai_tags static %}
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+	{% block css_files %}
+	    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/pages.css' %}" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+	{% endblock css_files %} 
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+        {% render_block "css" %}
+    </head>
+
+
+    <body>
+        {% cms_toolbar %}
+	{% block navbar %}
+	    <nav class="navbar navbar-default  navbar-fixed-top" style="background:white;">
+		<div class="navbar-header" style="background:#0d182a; width:100%; padding-left:15%; min-height:100px; padding-top:25px;">
+                     <a class="navbar-brand" href="/"><i class="fa fa-briefcase" aria-hidden="true"></i><span class="brand-name"> Zombie Tracker <sub class="app-version">Alpha</sub></span></a>
+		<div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		        </button>
+			<!-- <a class="navbar-brand" href="/"><i class="fa fa-briefcase" aria-hidden="true"></i><span class="brand-name"> Zombie Tracker <sub class="app-version">Alpha</sub></span></a> -->
+		    </div>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		        <ul class="nav navbar-nav navbar-right" style="padding-bottom:20px;">
+		            {% show_menu 0 100 100 100 "menu/custom_menu.html" %}
+		        </ul>
+		    </div>
+		    <!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	    </nav>
+          </div>
+	 {% endblock navbar %}
+
+
+
+
+
+         <div class="container-main" style = "min-height:70vh; margin-top:15rem;">
+            {% block content %}{% endblock content %}
+	    <button class="btn btn-default fab"><i class="fa fa-money"></i></button>
+         </div>
+
+
+	 <footer id="myFooter">
+		<div class="container-fluid">
+		    <div class="row">
+		        <div class="col-sm-4 col-sm-offset-1"i style="display:flex; align-items:center;">
+				<h2 class="logo col-sm-4"><a href="https://internetfreedom.in/" target="_blank"><img class="img-fluid" src="{% static 'img/iff_logo_horizontal_white.svg' %}"></a></h2> 
+                            <h2 class="logo col-sm-4"><a href="https://civicdatalab.in/" target="_blank"><img class="img-fluid" src="/static/img/CDL_Logo-Single Color.png"></a></h2>
+			    <h3 class="logo col-sm-4" style="text-align:center;"><a href="https://tech4dev.com/" target="_blank" style="font-size: 20px;">Tech4Dev</a></h3>
+		        </div>
+		        <div class="col-sm-3">
+                            <h5 style="text-align:center;">66A Tracker</h5>
+                            <h6 style="text-align:center;">We Stand against 66A</h6>
+		            <div class="social-networks">
+		                <a href="https://twitter.com/66a" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+		                <a href="https://www.facebook.com/66a" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+		                <a href="https://github.com/66a"  target="_blank" class="google"><i class="fa fa-github"></i></a>
+				<a href="/reporting"  target="_blank" class="google"><i class="fa fa-envelope"></i></a>
+				<a href="https://forum.internetfreedom.in/"  target="_blank" class="google"><i class="fa fa-forumbee"></i></a>
+		            </div>
+		        </div>
+		        <div class="col-sm-4" style="margin-top:30px; text-align:center;">
+		        <ul>
+		            <li><a target="_blank" href="/tc/">T&C</a></li>
+		            <li><a target="_blank" href="/privacy/">Privacy Policy</a></li>
+		        </ul>
+		    </div>
+		    </div>
+		    
+		</div>
+		<div class="footer-copyright">
+		    <p>All work under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 (CC-BY)</a></p>
+		</div>
+	 </footer>
+
+        {% render_block "js" %}{% block js_block %}
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     {% endblock js_block %} 
+  
+
+
+    </body>
+</html>

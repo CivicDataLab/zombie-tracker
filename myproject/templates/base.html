@@ -1,0 +1,135 @@
+{% load cms_tags menu_tags sekizai_tags static %}
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+	{% block css_files %}
+	    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/pages.css' %}" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+	{% endblock css_files %} 
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+        {% render_block "css" %}
+    </head>
+
+
+    <body>
+        {% cms_toolbar %}
+	{% block navbar %}
+
+
+<section class="header">
+      <div class="header__info">
+	      <a href="/"><img class="header__info__brand" src="/static/img/LOGO.svg" alt="brand" /></a>
+        <p class="header__info__description">
+          The Zombie Tracker is a platform, which monitors cases which include a
+          charge under
+          <span>Section 66A of the Information Technology Act</span> (as amended
+          2008)
+        </p>
+      </div>
+      <div class="header__nav">
+        <ul class="header__nav__navbar">
+          <li><a href="/viz">Tracker</a></li>
+          <li><a href="/methodology">Methodology</a></li>
+          <li class="dropdown">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Recommendations <span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="/recommendations/66a">66A</a></li>
+              <li><a href="/recommendations/opendata">OpenData</a></li>
+              <li><a href="/recommendations/general">General</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Glossary <span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="/glossary/process">Process</a></li>
+              <li><a href="/glossary/terms">Terms</a></li>
+            </ul>
+          </li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/about-us">About Us</a></li>
+        </ul>
+      </div>
+</section>
+
+
+
+
+	{% endblock navbar %}
+
+
+
+
+
+         <div class="container-main" style = "min-height:70vh;">
+            {% block content %}{% endblock content %}
+	    <a target="_blank" rel="noreferrer noopener"  href="https://internetfreedom.in/donate" class="btn btn-default fab"><i class="fa fa-money"></i></a>
+         </div>
+
+
+	 <footer id="myFooter">
+		<div class="container-fluid">
+		    <div class="row">
+		        <div class="col-sm-4" style="display:flex; align-items:center;">
+			    <h2 class="logo col-sm-4 col-xs-6"><a href="https://internetfreedom.in/" target="_blank"><img class="img-fluid" src="{% static 'img/iff_logo_horizontal_white.svg' %}"></a></h2> 
+                            <h2 class="logo col-sm-4 col-xs-6"><a href="https://civicdatalab.in/" target="_blank"><img class="img-fluid" src="/static/img/CDL_Logo-Single Color.png"></a></h2>
+			    <!-- <h3 class="logo col-sm-4" style="text-align:center;"><a href="https://tech4dev.com/" target="_blank" style="font-size: 20px;">Tech4Dev</a></h3> -->
+		        </div>
+		        <div class="col-sm-4">
+                            <h5 style="text-align:center;">66A Tracker</h5>
+                            <h6 style="text-align:center;">We Stand against 66A</h6>
+		            <div class="social-networks">
+		                <a href="https://twitter.com/internetfreedom" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+				<!-- <a href="https://www.facebook.com/66a" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> -->
+		                <a href="https://github.com/CivicDataLab/stop-66A"  target="_blank" class="google"><i class="fa fa-github"></i></a>
+				<a href="/reporting"  target="_blank" class="google"><i class="fa fa-envelope"></i></a>
+				<a href="https://forum.internetfreedom.in/"  target="_blank" class="google"><i class="fa fa-forumbee"></i></a>
+		            </div>
+		        </div>
+		        <div class="col-sm-4" style="margin-top:30px; text-align:center;padding-top:2%;">
+		        <ul>
+		            <li><a target="_blank" href="/tc/">Terms of Use</a></li>
+		            <li><a target="_blank" href="/privacy/">Privacy Policy</a></li>
+		        </ul>
+		    </div>
+		    </div>
+		    
+		</div>
+		<div class="footer-copyright">
+		    <p>All work under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 (CC-BY)</a></p>
+		    <p>We thank the <a href="https://chintugudiya.org/" target="_blank">ChintuGudiya Foundation (Project Tech4Dev)</a> for funding the first phase of the project. </p> 
+		</div>
+	 </footer>
+
+        {% render_block "js" %}{% block js_block %}
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     {% endblock js_block %} 
+  
+
+
+    </body>
+</html>

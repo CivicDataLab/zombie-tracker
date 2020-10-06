@@ -1,0 +1,30 @@
+{% load i18n menu_tags cache %}
+
+    {% for child in children %}
+<!-- no child pages  -->
+        {% if child.is_leaf_node %}
+            <li class="single-node"><a href="{{ child.get_absolute_url }}">{{child.get_menu_title }}</a></li>
+        {% endif %}
+<!-- /no child pages  -->
+<!-- has child pages  -->
+        {% if not child.is_leaf_node or child.ancestor %}
+            <li class={% if child.selected %} {{ active }} {% endif %} data-node="{{ child.menu_level }}">
+                <i class="fa" aria-hidden="true" data-toggle="collapse" data-target="#{{ child.get_menu_title|cut:' '  }}" aria-expanded="false" ></i>
+                <a href="{{ child.get_absolute_url }}" class="" >
+                {{child.get_menu_title }}</a>
+                <ul class="collapse" id="{{ child.get_menu_title|cut:' ' }}">
+                    {% if child.get_descendants %}
+                        {% for kid in child.get_descendants %}
+                            <li data-node="{{ child.menu_level }}" class="single-node">
+                                <a href="{{ kid.get_absolute_url }}">
+                                    {{kid.get_menu_title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
+<!-- /has child pages  -->
+    {% endfor %} 
+<!-- /end for child -->

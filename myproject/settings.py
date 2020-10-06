@@ -31,16 +31,61 @@ ALLOWED_HOSTS = ['35.154.207.72','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig', 
+    'users.apps.UsersConfig',
+    'tracker66a.apps.Tracker66AConfig',
+    'frontend.apps.FrontendConfig',
+    'tracker.apps.TrackerConfig',
+    'django.contrib.sites',
+    'cms',
+    'menus',
+    'treebeard',
+    'sekizai',
+    'filer',
+    'easy_thumbnails',
+    'mptt',
+    'aldryn_apphooks_config',
+    'parler',
+    'taggit',
+    'taggit_autosuggest',
+    'meta',
+    'sortedm2m',
+    'djangocms_blog',
+    'djangocms_text_ckeditor',
+    'djangocms_link',
+    'djangocms_file',
+    'djangocms_picture',
+    'djangocms_video',
+    'djangocms_googlemap',
+    'djangocms_snippet',
+    'djangocms_style',
+    'djangocms_icon',
+    'djangocms_bootstrap4',
+    'djangocms_bootstrap4.contrib.bootstrap4_alerts',
+    'djangocms_bootstrap4.contrib.bootstrap4_badge',
+    'djangocms_bootstrap4.contrib.bootstrap4_card',
+    'djangocms_bootstrap4.contrib.bootstrap4_carousel',
+    'djangocms_bootstrap4.contrib.bootstrap4_collapse',
+    'djangocms_bootstrap4.contrib.bootstrap4_content',
+    'djangocms_bootstrap4.contrib.bootstrap4_grid',
+    'djangocms_bootstrap4.contrib.bootstrap4_jumbotron',
+    'djangocms_bootstrap4.contrib.bootstrap4_link',
+    'djangocms_bootstrap4.contrib.bootstrap4_listgroup',
+    'djangocms_bootstrap4.contrib.bootstrap4_media',
+    'djangocms_bootstrap4.contrib.bootstrap4_picture',
+    'djangocms_bootstrap4.contrib.bootstrap4_tabs',
+    'djangocms_bootstrap4.contrib.bootstrap4_utilities',
+    'cmsplugin_contact_form',
 ]
 
 MIDDLEWARE = [
+    'cms.middleware.utils.ApphookReloadMiddleware',    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +93,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -55,7 +105,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS':  [os.path.join(BASE_DIR, 'myproject', 'templates'),os.path.join(BASE_DIR, 'tracker', 'covid19india-react', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,6 +113,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'sekizai.context_processors.sekizai',
+                'cms.context_processors.cms_settings',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -108,7 +161,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -124,5 +177,58 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+STATICFILES_DIRS = (
+            os.path.join(BASE_DIR, 'myproject', 'static'),
+            os.path.join(BASE_DIR, 'tracker', 'covid19india-react', 'build', 'static')
+            )
 
-AUTH_USER_MODEL = 'users.CustomUser' 
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+CMS_TEMPLATES = [
+            ## Customize this
+            ('fullwidth.html', 'Fullwidth'),
+            ('sidebar_left.html', 'Sidebar Left'),
+            ('sidebar_right.html', 'Sidebar Right'),
+            ('home.html', 'Home'),
+            ('about.html', 'About'),
+            ('glossary1.html', 'Glossary1')
+            ]
+
+SITE_ID = 1
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+LANGUAGES = (
+            ## Customize this
+                ('en', 'English'),
+            )
+
+THUMBNAIL_HIGH_RESOLUTION = True
+
+THUMBNAIL_PROCESSORS = (
+            'easy_thumbnails.processors.colorspace',
+            'easy_thumbnails.processors.autocrop',
+            'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+            'easy_thumbnails.processors.filters',
+                        )
+
+META_SITE_PROTOCOL = 'http'  # set 'http' for non ssl enabled websites
+META_USE_SITES = True
+
+META_USE_OG_PROPERTIES=True
+META_USE_TWITTER_PROPERTIES=True
+META_USE_GOOGLEPLUS_PROPERTIES=True # django-meta 1.x+
+META_USE_SCHEMAORG_PROPERTIES=True  # django-meta 2.x+
+
+PARLER_LANGUAGES = {
+            1: (
+                 {'code': 'en',},
+               ),
+            'default': {
+                 'fallbacks': ['en'],
+                        }
+                }
+
+

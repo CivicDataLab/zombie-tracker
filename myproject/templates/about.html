@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load cms_tags static %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+
+{% block css_files %} 
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pages.css' %}" /> 
+{% endblock css_files %} 
+
+{% block content %}
+     <div class="container-main" style="margin: 4em auto">{% placeholder "team" %}</div>
+     <!-- <div class="col-xs-12 col-to-row text-container" style="margin-top:20px;">
+     	<div class="col-sm-3 col-sm-offset-1 col-xs-12 row-section"  onclick="window.open('https://chintugudiya.com')"     style="margin-right:20px; display:block; cursor: pointer;">{% placeholder "tech4dev" %}</div>
+     	<div  class="col-sm-3 col-sm-offset-1 col-xs-12 row-section" onclick="window.open('https://internetfreedom.in')"   style="margin-right:20px; display:block; cursor: pointer;">{% placeholder "iff" %}</div>
+        <div  class="col-sm-3 col-sm-offset-1 col-xs-12 row-section" onclick="window.open('https://civicdatalab.in')"   style="display:block; cursor: pointer;">{% placeholder "cdl" %}</div>
+     </div> -->
+{% endblock content %}
+
+
