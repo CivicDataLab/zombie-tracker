@@ -1,26 +1,3 @@
-.col-to-row {
-  display: flex;
-}
-
-@media screen and (max-width: 767px) {
-  .col-to-row {
-    display: block;
-  }
-}
-
-.row-section {
-  background: white;
-  margin-bottom: 20px;
-  min-height: 15vh;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.row-section a {
-  text-decoration: underline;
-}
-
 .dark-block {
   color: black;
   text-align: left;
@@ -142,7 +119,6 @@ article.post-item h4 {
 
 @media (max-width: 411px) {
   .timeline-section {
-    font-size: 14px;
     width: 300px;
   }
   .why-tracking__bodytext {

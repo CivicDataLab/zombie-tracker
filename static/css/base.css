@@ -1,35 +1,27 @@
 body {
   font-family: 'Roboto', sans-serif;
-  /* color: #d8cfc7; */
   font-size: 16px;
 }
 
 .container {
   width: 70%;
-  float: none;
 }
 
-@media (max-width: 411px) {
-  .container {
-    width: 100%;
-  }
-}
-
-.text-container {
+/* .text-container {
   width: 100%;
   padding-left: 12.5%;
   padding-right: 12.5%;
   line-height: 1.8em;
-}
+} */
 
-.text-container1 {
+/* .text-container1 {
   width: 70%;
   margin-left: 15%;
   margin-right: 15%;
   border-radius: 20px;
   padding-left: 10px;
   line-height: 1.8em;
-}
+} */
 
 .blog-list .post-item-card:nth-child(3n + 1) {
   background: #d8cfc7;
@@ -56,6 +48,11 @@ body {
   margin-right: 2.5%;
 }
 
+.blog-list .post-item-card {
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
 @media (max-width: 590px) {
   .blog-latest-entries .post-item-card {
     width: 70%;
@@ -79,11 +76,6 @@ body {
   .blog-latest-entries {
     justify-content: space-between;
   }
-}
-
-.blog-list .post-item-card {
-  margin-left: 4%;
-  margin-right: 4%;
 }
 
 @media (min-width: 1200px) and (max-width: 1700px) {
@@ -251,9 +243,6 @@ nav.navbar.navbar-default.navbar-fixed-top {
     width: 95%;
     margin-top: 0px;
   }
-}
-
-@media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: white;
   }
@@ -563,23 +552,6 @@ sub.app-version {
   box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 411px) {
-  body {
-    font-size: 14px;
-  }
-  .text-container.methodology__title,
-  .text-container.methodology__body {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  .methodology__title h1 {
-    width: 85% !important;
-  }
-  .methodology__body > * {
-    width: 85% !important;
-  }
-}
-
 .header {
   display: flex;
   flex-direction: column;
@@ -668,6 +640,12 @@ sub.app-version {
 }
 
 @media (max-width: 411px) {
+  body {
+    font-size: 14px;
+  }
+  .container {
+    width: 100%;
+  }
   .header__info {
     text-align: left;
   }
@@ -679,5 +657,16 @@ sub.app-version {
   }
   .header__nav__navbar:-webkit-scrollbar {
     display: none;
+  }
+  .text-container.methodology__title,
+  .text-container.methodology__body {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .methodology__title h1 {
+    width: 85% !important;
+  }
+  .methodology__body > * {
+    width: 85% !important;
   }
 }
