@@ -10,11 +10,11 @@
 {% endblock css_files %} 
 
 {% block content %}
-     <div class="row-section" style="display:none;">{% placeholder "desc" %}</div>
-     <div class="container col-to-row">
+     <!-- <div class="row-section" style="display:none;">{% placeholder "desc" %}</div> -->
+     <div class="container">
         <div>{% placeholder "desc1" %}</div>
      </div>
-     <div class="row-section" style="padding:0; display:none;">{% placeholder "timeline" %}</div>
+     <!-- <div class="row-section" style="padding:0; display:none;">{% placeholder "timeline" %}</div> -->
 
     
     <div class="container">
@@ -110,11 +110,11 @@
     </section>
     </div>
     
-    <div class="row-section container">{% placeholder "desc2" %}</div> 
+    <div class="container">{% placeholder "desc2" %}</div> 
 
 
      <div class="container col-to-row">
-     	<div class="col-lg-12 row-section dark-block">{% placeholder "latestpost" %}</div>
+     	<div class="col-lg-12 dark-block">{% placeholder "latestpost" %}</div>
 	<!-- <div  class="col-lg-6 col-sm-12 row-section dark-block">{% placeholder "exploremore" %}</div> -->
      </div>
 {% endblock content %}
