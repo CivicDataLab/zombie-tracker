@@ -605,7 +605,7 @@ sub.app-version {
   font-weight: 400;
 }
 
-@media (max-width: 411px) {
+@media (max-width: 420px) {
   .header-section {
     padding: 1.5em;
   }

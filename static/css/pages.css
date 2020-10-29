@@ -17,8 +17,23 @@ article.post-item h4 {
   height: auto;
 }
 
-.why-tracking__bodytext a {
-  text-decoration: underline;
+.textblock {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 864px;
+  width: 100%;
+  padding: 0 1em;
+  margin: 3em auto 0 auto;
+}
+
+.textblock__title {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.textblock__description {
+  line-height: 1.5em;
 }
 
 .timeline-section {
@@ -117,15 +132,11 @@ article.post-item h4 {
   text-decoration: underline !important;
 }
 
-@media (max-width: 411px) {
+@media (max-width: 420px) {
   .timeline-section {
     width: 300px;
   }
-  .why-tracking__bodytext {
-    padding: 0 1em;
-    line-height: 1.8em;
-  }
-  .why-tracking__title {
-    padding: 0 0.5em;
+  .textblock {
+    margin: 1.5em auto 0 auto;
   }
 }
