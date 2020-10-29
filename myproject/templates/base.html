@@ -28,54 +28,55 @@
   <body>
     {% cms_toolbar %} {% block navbar %}
 
-    <section class="header">
-      <div class="header__info">
-        <a href="/"><img class="header__info__brand" src="/static/img/LOGO.svg" alt="brand" /></a>
-        <p class="header__info__description">
-          The Zombie Tracker is a platform, which monitors cases which include a charge under
-          <span>Section 66A of the Information Technology Act</span> (as amended 2008)
+    <section class="header-section">
+      <div class="header">
+        <img class="header__logo" src="/assets/logo.svg" alt="" />
+        <p class="header__description">
+          The ‘Zombie Tracker’ is a platform which monitors cases which include a charge under
+          <span>Section 66A of the Information Technology Act 2000</span> (as amended in 2008).
         </p>
       </div>
-      <div class="header__nav">
-        <ul class="header__nav__navbar">
-          <li><a href="/viz">Tracker</a></li>
-          <li><a href="/methodology">Methodology</a></li>
-          <li class="dropdown">
-            <a
-              href="#"
-              class="dropdown-toggle"
-              data-toggle="dropdown"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              >Recommendations <span class="caret"></span
-            ></a>
-            <ul class="dropdown-menu">
-              <li><a href="/recommendations/66a">66A</a></li>
-              <li><a href="/recommendations/opendata">OpenData</a></li>
-              <li><a href="/recommendations/general">General</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a
-              href="#"
-              class="dropdown-toggle"
-              data-toggle="dropdown"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              >Glossary <span class="caret"></span
-            ></a>
-            <ul class="dropdown-menu">
-              <li><a href="/glossary/process">Process</a></li>
-              <li><a href="/glossary/terms">Terms</a></li>
-            </ul>
-          </li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/about-us">About Us</a></li>
-        </ul>
-      </div>
     </section>
+
+    <!-- <div class="header__nav">
+      <ul class="header__nav__navbar">
+        <li><a href="/viz">Tracker</a></li>
+        <li><a href="/methodology">Methodology</a></li>
+        <li class="dropdown">
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Recommendations <span class="caret"></span
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="/recommendations/66a">66A</a></li>
+            <li><a href="/recommendations/opendata">OpenData</a></li>
+            <li><a href="/recommendations/general">General</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Glossary <span class="caret"></span
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="/glossary/process">Process</a></li>
+            <li><a href="/glossary/terms">Terms</a></li>
+          </ul>
+        </li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about-us">About Us</a></li>
+      </ul>
+    </div> -->
 
     {% endblock navbar %}
 
