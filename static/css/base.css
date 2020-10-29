@@ -552,74 +552,82 @@ sub.app-version {
   box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.1);
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
+.header-section {
   background-color: #0d182a;
+  color: #d8cfc7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 3.5em 0;
 }
 
-.header__info {
-  box-sizing: border-box;
-  color: white;
-  max-width: 645px;
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 792px;
   width: 100%;
-  margin: 0 auto;
-  padding: 16px;
-  text-align: center;
 }
 
-.header__info__brand {
-  height: 120px;
+.header__logo {
+  height: 100%;
   width: auto;
 }
 
-.header__info__description {
-  font-size: 16px;
-  line-height: 24px;
-  margin: 8px 0;
-  transition: all 0.2s linear;
-}
-
-.header__info span {
-  font-weight: 700;
-}
-
-.header__nav {
+.header__description {
+  font-weight: 300;
+  line-height: 1.5em;
+  text-align: center;
+  padding: 0 4px;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 608px;
   width: 100%;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  background-color: #414275;
 }
 
-.header__nav__navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  margin: 0 auto;
+.header__description span {
+  font-weight: 400;
 }
 
-.header__nav__navbar > li {
-  list-style: none;
-  margin: 0 1em;
-}
-
-.header__nav__navbar > li a {
-  color: white;
-  text-decoration: none;
-}
-
-.header__nav > ul i {
-  color: white;
-  cursor: pointer;
-}
-
-.dropdown-menu li a {
-  color: black;
-}
-
-.hide {
-  display: none;
+@media (max-width: 411px) {
+  .header-section {
+    padding: 1.5em;
+  }
+  .header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  .header__logo {
+    margin-bottom: 1em;
+  }
+  .header__description {
+    text-align: left;
+    padding: 0;
+  }
 }
 
 .person {
