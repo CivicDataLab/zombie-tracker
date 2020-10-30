@@ -1,7 +1,15 @@
-{% extends "base.html" %} {% load cms_tags static %} {% block title %}{% page_attribute "page_title" %}{% endblock title
-%} {% block css_files %} {{ block.super }}
-<link rel="stylesheet" type="text/css" href="{% static 'css/pages.css' %}" />
-{% endblock css_files %} {% block content %}
+{% extends "base.html" %}
+{% load cms_tags static %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+
+{% block css_files %} 
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pages.css' %}" /> 
+{% endblock css_files %} 
+
+{% block content %}
 <!-- <div class="row-section" style="display:none;">{% placeholder "desc" %}</div> -->
 <section class="textblock-section">
   <div class="textblock">{% placeholder "desc1" %}</div>
