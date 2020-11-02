@@ -104,61 +104,42 @@
       ></a>
     </div>
 
-    <footer id="myFooter">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-4">
-            <h2 class="logo col-sm-4 col-xs-6">
-              <a href="https://internetfreedom.in/" target="_blank"
-                ><img class="img-fluid" src="{% static 'img/iff_logo_horizontal_white.svg' %}"
-              /></a>
-            </h2>
-            <h2 class="logo col-sm-4 col-xs-6">
-              <a href="https://civicdatalab.in/" target="_blank"
-                ><img class="img-fluid" src="/static/img/CDL_Logo-Single Color.png"
-              /></a>
-            </h2>
-            <!-- <h3 class="logo col-sm-4" style="text-align:center;"><a href="https://tech4dev.com/" target="_blank" style="font-size: 20px;">Tech4Dev</a></h3> -->
+    <section class="footer-section">
+      <div class="footer-row footer-row--grid">
+        <div class="footer-item footer-item--left">
+          <a href="">Terms of Use</a>
+          <img class="footer-brand-logo" src="static/img/iff_logo_horizontal_white.svg" />
+        </div>
+        <div class="footer-item footer-item--center">
+          <div>
+            <span>66A Tracker</span>
+            <span>We stand against 66A</span>
           </div>
-          <div class="col-sm-4">
-            <h5>66A Tracker</h5>
-            <h6>We Stand against 66A</h6>
-            <div class="social-networks">
-              <a href="https://twitter.com/internetfreedom" target="_blank" class="twitter"
-                ><i class="fa fa-twitter"></i
-              ></a>
-              <!-- <a href="https://www.facebook.com/66a" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> -->
-              <a href="https://github.com/CivicDataLab/stop-66A" target="_blank" class="google"
-                ><i class="fa fa-github"></i
-              ></a>
-              <a href="/reporting" target="_blank" class="google"><i class="fa fa-envelope"></i></a>
-              <a href="https://forum.internetfreedom.in/" target="_blank" class="google"
-                ><i class="fa fa-forumbee"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <ul>
-              <li><a target="_blank" href="/tc/">Terms of Use</a></li>
-              <li><a target="_blank" href="/privacy/">Privacy Policy</a></li>
-            </ul>
+          <div class="social-networks">
+            <a href="https://twitter.com/internetfreedom" target="_blank" class="twitter"
+              ><i class="fa fa-twitter"></i
+            ></a>
+            <a href="https://www.facebook.com/66a" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://github.com/CivicDataLab/stop-66A" target="_blank" class="google"
+              ><i class="fa fa-github"></i
+            ></a>
+            <a href="/reporting" target="_blank" class="google"><i class="fa fa-envelope"></i></a>
+            <a href="https://forum.internetfreedom.in/" target="_blank" class="google"
+              ><i class="fa fa-forumbee"></i
+            ></a>
           </div>
         </div>
+        <div class="footer-item footer-item--right">
+          <a href="">Privacy Policy</a>
+          <img class="footer-brand-logo" src="static/img/civicdatalab.png" />
+        </div>
       </div>
-      <div class="footer-copyright">
-        <p>
-          All work under
-          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-            >Creative Commons Attribution 4.0 (CC-BY)</a
-          >
-        </p>
-        <p>
-          We thank the
-          <a href="https://chintugudiya.org/" target="_blank">ChintuGudiya Foundation (Project Tech4Dev)</a> for funding
-          the first phase of the project.
-        </p>
+      <hr class="horizontal-divider" />
+      <div class="footer-row">
+        <span>All works under Creative Commons Attribution 4.0 (CC-BY)</span>
+        <span>We thank the ChintuGudiya Foundation (Project Tech4Dev) for funding the first phase of the project</span>
       </div>
-    </footer>
+    </section>
 
     {% render_block "js" %}{% block js_block %}
     <script
