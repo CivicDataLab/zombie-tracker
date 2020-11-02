@@ -833,9 +833,6 @@ sub.app-version {
 }
 
 @media (max-width: 420px) {
-  body {
-    font-size: 14px;
-  }
   .container {
     width: 100%;
   }
