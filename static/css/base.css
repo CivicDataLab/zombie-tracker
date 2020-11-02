@@ -605,6 +605,73 @@ sub.app-version {
   font-weight: 400;
 }
 
+.header__nav {
+  width: 100%;
+  height: 72px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.header__nav__navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.header__nav__navbar > li {
+  padding: 8px;
+  list-style: none;
+  margin: 0 1em;
+}
+
+.header__nav__navbar > li:hover {
+  background-color: #d8cfc7;
+  border-radius: 15px;
+}
+
+.header__nav__navbar > li a {
+  color: #0d182a;
+  text-decoration: underline;
+}
+
+.dropdown-menu {
+  font-size: 16px;
+  line-height: 1.5em;
+  background-color: #d8cfc7;
+  border-radius: 8px;
+  position: absolute;
+}
+
+.dropdown-menu li {
+  padding: 8px;
+}
+
+.dropdown-menu li:hover {
+  background-color: #bfb7b0;
+}
+
+.dropdown-menu li a {
+  padding: 0;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background: none;
+}
+
 @media (max-width: 420px) {
   .header-section {
     padding: 1.5em;
@@ -627,6 +694,15 @@ sub.app-version {
   .header__description {
     text-align: left;
     padding: 0;
+  }
+  .header__nav__navbar {
+    overflow-x: scroll;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .header__nav__navbar:-webkit-scrollbar {
+    display: none;
   }
 }
 
