@@ -723,6 +723,11 @@ sub.app-version {
   align-self: center;
 }
 
+.footer-item--right,
+.footer-item--left a {
+  text-decoration: underline;
+}
+
 .footer-item--left {
   -webkit-box-align: start;
   -ms-flex-align: start;
