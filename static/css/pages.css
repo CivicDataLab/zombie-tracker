@@ -206,6 +206,9 @@ article.post-item h4 {
     content: '';
     height: 0px;
   }
+  .timeline__tree__node:nth-of-type(1n) .timeline__tree__branch {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 560px) {
