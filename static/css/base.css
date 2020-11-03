@@ -275,11 +275,6 @@ body {
   min-height: 200px;
 }
 
-#myFooter {
-  flex: 0 0 auto;
-  -webkit-flex: 0 0 auto;
-}
-
 a:link {
   text-decoration: none;
 }
@@ -521,7 +516,7 @@ sub.app-version {
   border-radius: 15px;
 }
 
-.header__nav__navbar > li a:not(span) {
+.header__nav__navbar > li a {
   color: #0d182a;
   text-decoration: underline;
 }
