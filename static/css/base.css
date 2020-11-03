@@ -550,152 +550,6 @@ sub.app-version {
   background: none;
 }
 
-.timeline-section {
-  margin-top: 64px;
-  margin-bottom: 64px;
-}
-
-.timeline {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  background-color: #0d182a;
-  max-width: 1312px;
-  width: 100%;
-  padding: 64px 105px;
-  margin: 0 auto;
-  border-radius: 8px;
-  color: #d8cfc7;
-}
-
-.timeline__title {
-  margin: 0;
-  text-align: center;
-}
-
-.timeline__tree {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.timeline__tree__node {
-  display: -ms-grid;
-  display: grid;
-  width: 100%;
-  -ms-grid-columns: 1fr 160px 1fr;
-  grid-template-columns: 1fr 160px 1fr;
-  margin-top: 44px;
-  position: relative;
-}
-
-.timeline__tree__node::before {
-  content: '';
-  height: 128px;
-  width: 1px;
-  background-color: #d8cfc7;
-  position: absolute;
-  left: 50%;
-  top: 46%;
-  z-index: 1;
-}
-
-.timeline__tree__node:last-of-type::before {
-  content: '';
-  height: 0px;
-}
-
-.timeline__tree__node span {
-  font-weight: 700;
-}
-
-.timeline__tree__pill {
-  width: 152px;
-  height: 52px;
-  border-radius: 24px;
-  background-color: #d8cfc7;
-  color: #000;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 500;
-  position: relative;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
-  justify-self: center;
-  z-index: 99;
-}
-
-.timeline__tree__pill::before {
-  content: '';
-  width: 158px;
-  height: 58px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border-radius: 28px;
-}
-
-.timeline__tree__node:nth-of-type(1n) .timeline__tree__pill::before {
-  border: 2px solid #d8cfc7;
-}
-
-.timeline__tree__node:nth-of-type(2n) .timeline__tree__pill::before {
-  border: 2px solid #f9b950;
-}
-
-.timeline__tree__node:nth-of-type(3n) .timeline__tree__pill::before {
-  border: 2px solid #bd4227;
-}
-
-.timeline__tree__branch {
-  max-width: 448px;
-  width: 100%;
-}
-
-.timeline__tree__branch p {
-  margin-top: 0;
-  line-height: 24px;
-}
-
-.timeline__tree__node:nth-of-type(1n) .timeline__tree__branch {
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-column: 3/4;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-  margin-left: 1.5em;
-  margin-right: 0;
-}
-
-.timeline__tree__node:nth-of-type(2n) .timeline__tree__branch {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-  margin-left: 0;
-}
-
 .footer-section {
   color: #fff;
   background-color: #0d182a;
@@ -818,37 +672,7 @@ sub.app-version {
   border-radius: 50%;
 }
 
-@media (max-width: 830px) {
-  .timeline__tree__node {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-  .timeline__tree__pill {
-    margin-bottom: 28px;
-  }
-  .timeline__tree__node::before {
-    content: '';
-    height: 0px;
-  }
-}
-
 @media (max-width: 560px) {
-  .timeline {
-    padding: 40px 32px;
-  }
-  .timeline__tree__node {
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-  }
   .footer-row--grid {
     display: -ms-grid;
     display: grid;
@@ -949,18 +773,6 @@ sub.app-version {
   }
   .header__nav__navbar:-webkit-scrollbar {
     display: none;
-  }
-  .timeline__tree {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
   }
   .footer-section {
     padding: 32px;
