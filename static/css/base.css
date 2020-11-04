@@ -526,10 +526,6 @@ sub.app-version {
   line-height: 1.5em;
   background-color: #d8cfc7;
   border-radius: 8px;
-  position: fixed;
-  left: 25%;
-  top: 295px;
-  right: auto;
 }
 
 .dropdown-menu li {
@@ -772,6 +768,12 @@ sub.app-version {
   }
   .header__nav__navbar:-webkit-scrollbar {
     display: none;
+  }
+  .dropdown-menu {
+    position: fixed;
+    left: 25%;
+    top: 295px;
+    right: auto;
   }
   .footer-section {
     padding: 32px;
