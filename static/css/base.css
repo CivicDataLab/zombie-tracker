@@ -526,6 +526,10 @@ sub.app-version {
   line-height: 1.5em;
   background-color: #d8cfc7;
   border-radius: 8px;
+  position: fixed;
+  left: 25%;
+  top: 46%;
+  right: auto;
 }
 
 .dropdown-menu li {
