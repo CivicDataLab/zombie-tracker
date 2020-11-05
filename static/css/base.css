@@ -328,7 +328,7 @@ sub.app-version {
 .methodology__body h3 {
   font-size: 16px;
   line-height: 1.5em;
-  margin: 0;
+  margin: 0 0 -14px 0;
   font-weight: 700;
 }
 
