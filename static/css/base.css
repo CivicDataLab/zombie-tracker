@@ -261,14 +261,6 @@ ul.nav.navbar-nav.navbar-right {
   margin-right: 6px;
 }
 
-body {
-  display: flex;
-  display: -webkit-flex;
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  height: 100%;
-}
-
 .content {
   flex: 1 0 auto;
   -webkit-flex: 1 0 auto;
@@ -527,6 +519,7 @@ li {
 
 .dropdown-menu li {
   padding: 8px;
+  margin: 0;
 }
 
 .dropdown-menu li:hover {
