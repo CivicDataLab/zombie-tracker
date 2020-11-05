@@ -312,6 +312,7 @@ sub.app-version {
   padding: 8px 200px 8px 32px;
   border-radius: 40px;
   margin: 0;
+  font-weight: 700;
 }
 
 .methodology__title--biege {
@@ -336,6 +337,7 @@ sub.app-version {
   font-size: 16px;
   line-height: 1.5em;
   margin: 0;
+  font-weight: 700;
 }
 
 .methodology__body p,
