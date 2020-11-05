@@ -722,12 +722,6 @@ li {
     padding-left: 1em;
     padding-right: 1em;
   }
-  .methodology__title h1 {
-    width: 85% !important;
-  }
-  .methodology__body > * {
-    width: 85% !important;
-  }
   .header-section {
     padding: 1.5em;
   }
