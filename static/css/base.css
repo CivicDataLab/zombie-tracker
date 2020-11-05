@@ -297,119 +297,109 @@ sub.app-version {
   font-size: 0.4em;
 }
 
-.methodology__title h1 {
-  font-size: 2.67em;
+.methodology {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 900px;
+  width: 100%;
+  margin: 64px auto;
+}
+
+.methodology__title {
+  display: inline-block;
+  font-size: 20px;
   text-transform: uppercase;
-  margin-bottom: -8px;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 8px 200px 8px 32px;
+  border-radius: 40px;
+  margin: 0;
 }
 
-.methodology__title--aim {
-  color: #d8cfc7;
+.methodology__title--biege {
+  background-color: #d8cfc7;
 }
 
-.methodology__title--challenges {
-  color: #bd4227;
+.methodology__title--yellow {
+  background-color: #f9b950;
 }
 
-.methodology__title--methodology {
-  color: #f9b950;
+.methodology__title--red {
+  color: #fff;
+  background-color: #bd4227;
 }
 
 .methodology__body {
-  padding-top: 2em;
-  padding-bottom: 2em;
-}
-
-.methodology__body > * {
-  width: 70%;
-  margin: auto;
-}
-
-.methodology__body > h3 {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-.methodology__body h4 {
-  margin-bottom: 1em;
-}
-
-.methodology__body p {
-  margin-bottom: 0.65em;
-}
-
-.methodology__body li {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  padding-left: 32px;
+  margin-top: 40px;
 }
 
 .methodology__body p,
-.methodology__body li {
-  line-height: 1.8em;
+li {
+  font-size: 1rem;
+  line-height: 1.5em;
+  margin: 1em 0;
 }
 
 .methodology__body a {
   text-decoration: underline;
-}
-
-.methodology__body--aim {
-  background-color: #d8cfc7;
-}
-
-.methodology__body--methodology {
-  background-color: #f9b950;
-}
-
-.methodology__body--challenges {
-  background-color: #ffd7c7;
-}
-
-.methodology__body--challenges ul {
-  list-style: none;
-}
-
-.methodology__body--challenges li {
-  text-align: left;
-}
-
-.methodology__body--challenges li::before {
-  content: '\2022';
   color: #bd4227;
-  display: inline-block;
-  width: 0.5em;
-  font-weight: 700;
-  font-size: 2em;
-  top: 6px;
-  position: relative;
 }
 
-.methodology__body--challenges__table {
+.states-list {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 16px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(min(400px, 50%), 1fr));
+}
+
+.table-info {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+  -webkit-column-gap: 32px;
+  -moz-column-gap: 32px;
+  column-gap: 32px;
+}
+
+.table-info__table {
   border: 1px solid rgb(0, 0, 0, 0.12);
   border-collapse: collapse;
   margin: 1em auto;
 }
 
-.methodology__body--challenges__table thead {
-  background-color: #ffb5a8;
+.table-info__table thead {
+  background-color: #d8cfc7;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
 }
 
-.methodology__body--challenges__table tbody tr:nth-child(odd) {
-  background-color: #ffd7c7;
+.table-info__table tbody tr:nth-child(odd) {
+  background-color: #ebe7e3;
   border: 1px solid rgb(0, 0, 0, 0.12);
 }
 
-.methodology__body--challenges__table tbody tr:nth-child(even) {
-  background-color: #ffcfc5;
+.table-info__table tbody tr:nth-child(even) {
+  background-color: #d8cfc7;
 }
 
-.methodology__body--challenges__table td {
-  padding: 0.5em 0.4em;
-  text-align: center;
-  max-width: 300px;
-  width: 50%;
+.table-info__table tr td:nth-of-type(1n) {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 12px 0 12px 32px;
+  width: 184px;
+}
+.table-info__table tr td:nth-of-type(2n) {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 12px 0;
+  width: 232px;
+}
+
+.table-info__table td {
+  text-align: left;
 }
 
 .fab {
@@ -774,6 +764,20 @@ sub.app-version {
     left: 25%;
     top: 295px;
     right: auto;
+  }
+  .methodology {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .methodology__title--yellow {
+    padding-right: 72px;
+  }
+  .methodology__title--red {
+    padding-right: 136px;
+  }
+  .methodology__body {
+    padding-left: 0;
   }
   .footer-section {
     padding: 32px;
