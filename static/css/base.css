@@ -23,6 +23,7 @@ body {
   overflow-x: auto;
   max-width: 1314px;
   width: 100%;
+  margin: auto;
 }
 
 .blog-latest-entries .post-item-card {
