@@ -1,9 +1,5 @@
-.dark-block {
-  color: black;
-  text-align: left;
-  padding: 1.5em;
-  background: white;
-  margin: 0 2em;
+.recentblogs-section {
+  margin: 64px auto;
 }
 
 article.post-item h4 {
