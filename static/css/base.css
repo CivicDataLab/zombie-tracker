@@ -778,4 +778,7 @@ li {
   .footer-section {
     padding: 32px;
   }
+  .footer-item--right {
+    text-align: right;
+  }
 }
