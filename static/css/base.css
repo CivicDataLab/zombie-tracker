@@ -780,7 +780,7 @@ li {
     top: 295px;
     right: auto;
   }
-  .methodology {
+  .methodology, .privacy {
     width: 100%;
     padding-left: 16px;
     padding-right: 16px;
@@ -791,7 +791,7 @@ li {
   .methodology__title--red {
     padding-right: 136px;
   }
-  .methodology__body {
+  .methodology__body, .privacy__body {
     padding-left: 0;
   }
   .footer-section {
