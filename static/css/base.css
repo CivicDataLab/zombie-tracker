@@ -687,6 +687,10 @@ li {
   border: 1px solid rbga(255, 255, 255, 0.25);
 }
 
+.team-row {
+  margin-top: 28px;
+}
+
 .person {
   display: flex;
   flex-direction: column;
@@ -696,15 +700,40 @@ li {
 }
 
 .person__image {
-  width: 200px;
-  height: 200px;
+  width: 248px;
+  height: 264px;
   box-sizing: border-box;
-  margin-bottom: 0.5em;
-  border: 4px solid #8c8c9e;
-  border-radius: 50%;
+  margin-bottom: 24px;
+  border-radius: 15px;
+}
+
+.person__info {
+  width: 248px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.person__info > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.person__info__name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.person__info__designation {
+  color: rgb(0, 0, 0, 0.64);
+  font-size: 16px;
 }
 
 @media (max-width: 990px) {
+  .methodology, .privacy {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
   .privacy__body table tr {
     flex-direction: column;
   }
