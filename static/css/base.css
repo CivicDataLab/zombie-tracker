@@ -309,6 +309,32 @@ sub.app-version {
   font-weight: 700;
 }
 
+.privacy__title--capital {
+  text-transform: capitalize;
+  display: block;
+  text-align: center;
+}
+
+.privacy__body table tr {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.privacy__body table tr td p {
+  margin-top: 0;
+}
+
+.privacy__body table tr td p:last-of-type {
+  margin-bottom: 0;
+}
+
+.privacy__body table tr td:first-of-type {
+  font-weight: 700;
+  max-width: 192px;
+  width: 100%;
+}
+
 .privacy__body h3 {
   font-size: 20px;
   line-height: 32px;
@@ -678,6 +704,15 @@ li {
   border-radius: 50%;
 }
 
+@media (max-width: 990px) {
+  .privacy__body table tr {
+    flex-direction: column;
+  }
+  .privacy__body table tr td:first-of-type {
+    margin-bottom: 16px;
+  }
+}
+
 @media (max-width: 560px) {
   .footer-row--grid {
     display: -ms-grid;
@@ -793,6 +828,9 @@ li {
   }
   .methodology__body, .privacy__body {
     padding-left: 0;
+  }
+  .privacy__body table tr {
+    padding: 16px 0;
   }
   .footer-section {
     padding: 32px;
