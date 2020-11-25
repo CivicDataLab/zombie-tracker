@@ -331,7 +331,7 @@ sub.app-version {
 
 .privacy__body table tr td:first-of-type {
   font-weight: 700;
-  max-width: 192px;
+  max-width: 256px;
   width: 100%;
 }
 
