@@ -21,9 +21,64 @@ all_tables <- dbxSelect(con,
 ```
 
 
-```{sql connection=con}
-select is66a, count(is66a) from iff_db_case_details group by is66a
+<!-- For sharing the case details with IFF -->
+
+```{sql connection=con, output.var='pending_66a_case_details'}
+select * from iff_db_case_details where is66a='TRUE' and disp_nature='0'
 ```
+
+```{r}
+pending_66a_case_details <- pending_66a_case_details %>% filter(dt_regis >= '2009-10-27',dt_regis <= '2020-02-15')
+
+all_cols_list <- c("cino", "archive", "case_no", "complex_code", "court_code", "court_name", "court_no", "est_code", "date_first_list", "date_last_list", "date_next_list", "date_of_decision", "date_of_filing", "dt_regis", "desgcode", "desgname", "disp_name", "disp_nature", "district_code", "district_name", "state_code", "state_name", "fil_no", "fil_year", "reg_no", "reg_year", "fir_no", "fir_year", "goshwara_no", "police_station", "jcode", "judcode", "judgment_date", "judgment_link", "judgment_path", "judgment_word_count", "judgment_language", "judgment_error", "ldesgname", "lower_court_code", "lower_court_dec_dt", "main_matter_case_no", "main_matter_cino", "main_matter_filing_no", "hide_pet_name", "pet_name_add", "pet_adv", "pet_legal_heir", "pet_name", "pet_status", "petparty_name", "hide_res_name", "res_name_add", "res_adv", "res_legal_heir", "res_name", "res_status", "resparty_name", "purpose_name", "purpose_next", "str_error", "str_error1", "submatter_case_no", "subordinate_court_no", "subordinate_court_name", "subordinate_court_case_type", "subordinate_court_case_no", "subordinate_court_year", "subordinate_court_decision_date", "transfer_est_flag", "type_name", "is66a", "comments")
+
+selected_cols <- c("cino", "case_no", "complex_code", "court_code", "court_name", "court_no", "est_code", "date_first_list", "date_last_list", "date_next_list", "date_of_decision", "date_of_filing", "dt_regis", "desgcode", "desgname", "disp_name", "disp_nature", "district_code", "district_name", "state_code", "state_name", "fil_no", "fil_year", "reg_no", "reg_year", "fir_no", "fir_year", "goshwara_no", "police_station", "jcode", "judcode", "transfer_est_flag", "type_name", "is66a")
+
+pending_66a_case_details_cols <- pending_66a_case_details[,selected_cols]
+readr::write_csv(pending_66a_case_details_cols, '../../datasets/pending_case_details_020221.csv')
+
+```
+
+
+
+
+
+
+
+
+----------------
+
+```{sql connection=con, output.var='year_wise_judgements'} 
+select dt_regis, judgment_date, date_of_decision, state_name from iff_db_case_details where disp_nature != '0' AND is66a='TRUE'
+```
+
+```{r}
+
+year_wise_judgements <- year_wise_judgements %>% filter(dt_regis >= '2009-10-27',dt_regis <= '2020-02-15', !is.na(judgment_date))
+year_wise_judgements$judgement_year <- year(year_wise_judgements$judgment_date)
+
+```
+
+
+```{sql connection=con, output.var='state_wise_flags'} 
+select state_name, is66a, count(is66a) from iff_db_case_details group by state_name, is66a
+```
+
+
+```{sql connection=con, output.var='case_data_true'} 
+select * from iff_db_case_details where is66a='TRUE'
+```
+
+```{r}
+case_data_true %>% filter(dt_regis >= '2009-10-27',dt_regis <= '2020-02-15', disp_nature=='0') %>% nrow()
+# dt_regis BETWEEN ("" ,"2020-02-15"))
+```
+
+```{r}
+tidyr::pivot_wider(data = state_wise_flags,values_from='count', names_from='is66a') %>% mutate(total_cases = `FALSE` + `TRUE`) %>% arrange(desc(total_cases))
+```
+
+
 
 ```{sql connection=con, output.var='case_details_66a'}
 select cino, date_of_filing, dt_regis, date_of_decision, disp_name, disp_nature, state_name, district_name from iff_db_case_details where is66a='TRUE' 
