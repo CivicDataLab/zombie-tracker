@@ -27,6 +27,7 @@ all_tables <- dbxSelect(con,
 select * from iff_db_case_details where is66a='TRUE' and disp_nature='0'
 ```
 
+
 ```{r}
 pending_66a_case_details <- pending_66a_case_details %>% filter(dt_regis >= '2009-10-27',dt_regis <= '2020-02-15')
 
@@ -38,6 +39,54 @@ pending_66a_case_details_cols <- pending_66a_case_details[,selected_cols]
 readr::write_csv(pending_66a_case_details_cols, '../../datasets/pending_case_details_020221.csv')
 
 ```
+
+Update: 08/03/21
+
+Cols needed for pending cases:
+```{r}
+pending_cols <- c("cino", "court_name", "date_first_list", "date_of_filing", "dt_regis", "desgname", "district_name", "state_name", "pet_name", "res_name", "type_name")
+
+pending_66a_case_details <- pending_66a_case_details[, pending_cols]
+```
+
+Adding act and section details:
+
+```{sql connection=con, output.var='pending_act_details'}
+select a.*, b.* from iff_db_case_acts as a LEFT JOIN iff_db_act as b ON a.act = b.id where a.cino IN (select cino from iff_db_case_details where is66a='TRUE' and disp_nature='0' and dt_regis >= '2009-10-27' and dt_regis <= '2020-02-15') 
+```
+
+```{r}
+pending_act_details <- pending_act_details[,c('cino', 'name', 'section')]
+unique_cinos <- unique(pending_act_details$cino)
+
+pending_act_csv <- c()
+for(i in 1:length(unique_cinos)){
+  cino_i <- unique_cinos[[i]]
+  temp_act <- pending_act_details[pending_act_details$cino == cino_i,]
+  print(glue("cino - {cino_i} -- Total Acts - {nrow(temp_act)}"))
+  act_df <- c()
+  all_acts <- c()
+  for(j in 1:nrow(temp_act)){
+    all_acts <- c(all_acts, glue::glue("{temp_act$name[j]} {temp_act$section[j]}"))
+  }
+  all_acts <- paste0(all_acts, collapse = " ## ")
+  temp_act_df <- data.frame("cino"=cino_i, "act_details"=all_acts)
+  pending_act_csv <- dplyr::bind_rows(pending_act_csv, temp_act_df)
+}
+
+## Merging with pending_66a_case_details
+
+pending_cases_66a <- left_join(pending_66a_case_details, pending_act_csv, by='cino')
+names(pending_cases_66a)[] <- c("CaseNumber","CourtName", "DateofFirstListing","DateofFiling","DateofRegistration","JudgeDesignation","DistrictName","StateName","PetitionerName","RespondentName","CaseType","ActDetails")
+
+readr::write_csv(pending_cases_66a, '../../datasets/pending_case_details_080321.csv')
+```
+
+
+
+
+
+
 
 
 
