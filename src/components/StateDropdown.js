@@ -49,15 +49,16 @@ const StateDropdown = ({stateCode, trail}) => {
 
   return (
     <div className="StateDropdown" ref={dropdownRef}>
+      { stateCode != 'TT' && (<a href="/viz/"><h1>India - </h1></a>) }
       <animated.h1
         className="state-name fadeInUp"
-        style={trail}
-        onClick={setShowDropdown.bind(this, !showDropdown)}
+        /*style={trail}
+        onClick={setShowDropdown.bind(this, !showDropdown)}*/
       >
         {t(STATE_NAMES[stateCode])}
       </animated.h1>
 
-      {transitions.map(({item, key, props}) =>
+      {/* {transitions.map(({item, key, props}) =>
         item ? (
           <animated.div className="dropdown" style={props} key={key}>
             {Object.keys(MAP_META)
@@ -83,7 +84,7 @@ const StateDropdown = ({stateCode, trail}) => {
         )
       )}
 
-      {showDropdown && <div className="backdrop"></div>}
+      {showDropdown && <div className="backdrop"></div>} */}
     </div>
   );
 };

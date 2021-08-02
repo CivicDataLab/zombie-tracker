@@ -33,6 +33,7 @@ import {useSessionStorage} from 'react-use';
 
 function Row({
   data,
+  showdist=false,
   stateCode,
   districtName,
   isPerMillion,
@@ -40,7 +41,7 @@ function Row({
   setRegionHighlighted,
   expandTable,
 }) {
-  const [showDistricts, setShowDistricts] = useState(false);
+  const [showDistricts, setShowDistricts] = useState(showdist);
   const [sortData, setSortData] = useSessionStorage('districtSortData', {
     sortColumn: 'confirmed',
     isAscending: false,
@@ -137,7 +138,7 @@ function Row({
 
   const handleStatePageClick = useCallback(
     (stateCode) => {
-      history.push(`state/${stateCode}`);
+      history.push(`/viz/state/${stateCode}`);
     },
     [history]
   );
@@ -170,7 +171,7 @@ function Row({
                 regionHighlighted?.stateCode === data.stateCode),
           }
         )}
-        onMouseEnter={highlightState}
+        // onMouseEnter={highlightState}
         onClick={_setShowDistrict}
         ref={rowElement}
       >

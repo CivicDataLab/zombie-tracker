@@ -15,30 +15,89 @@ export const LOCALE_SHORTHANDS = {
 };
 
 export const STATISTIC_DEFINITIONS = {
-  confirmed: {
-    displayName: 'confirmed',
-    color: '#ff073a',
+  total: {
+    displayName: 'Cases registered',
+    ts_displayName: 'Cases Registered (Year on Year)',
+    table_displayName: 'Cases registered',
+    color: '#646f6f', //'#ff073a', // 'd8cfc7#',
     format: 'int',
-    options: {key: 'confirmed'},
+    options: {key: 'total'},
+    x_label: 'Case registration year',
   },
-  active: {
-    displayName: 'active',
-    color: '#007bff',
+  pending: {
+    displayName: 'Pending cases',
+    ts_displayName: 'Percentage of cases pending from each year',
+    table_displayName: 'Pending cases',
+    color: '#646f6f', //'#28a745', //#007bff',
     format: 'int',
-    options: {key: 'active'},
+    options: {key: 'pending'},
     hideDelta: true,
   },
-  recovered: {
-    displayName: 'recovered',
-    color: '#28a745',
+  disposed: {
+    displayName: 'Disposed cases',
+    ts_displayName: 'Cases disposed (percent) till date',
+    table_displayName: 'Disposed cases',
+    color: '#646f6f', //'#f9b950', //#28a745',
     format: 'int',
-    options: {key: 'recovered'},
+    options: {key: 'disposed'},
   },
-  deceased: {
-    displayName: 'deceased',
-    color: '#6c757d',
+  judgement: {
+    displayName: 'Cases with judgement',
+    ts_displayName: 'cases_with_judgement',
+    table_displayName: 'Cases with judgement',
+    color: '#646f6f', //'#bd4227', //#6c757d',
     format: 'int',
-    options: {key: 'deceased'},
+    options: {key: 'judgement'},
+  },
+  pending_agg: {
+    displayName: 'pending_cumulative',
+    ts_displayName: 'Overall case pendency',
+    table_displayName: 'Cases pending (end of year)',
+    color: '#646f6f',
+    format: 'int',
+    options: {key: 'pending_agg'},
+    x_label: 'Year'
+  },
+  pending_before: {
+    displayName: 'pending_before',
+    ts_displayName: 'earlier_cases',
+    table_displayName: 'Cases pending till date ',
+    color: '#646f6f',
+    format: 'int',
+    options: {key: 'pending_before'},
+  },
+  disposed_yearly: {
+    displayName: 'disposed_yearly',
+    ts_displayName: 'Cases Disposed (Year on Year)',
+    table_displayName: 'Cases disposed this year',
+    color: '#646f6f',
+    format: 'int',
+    options: {key: 'disposed_yearly'},
+    x_label: 'Case disposal year',
+  },
+  pendency: {
+    displayName: 'pendency',
+    ts_displayName: 'Time taken (in years) by the courts to dispose a case',
+    table_displayName: 'pendency',
+    color: '#646f6f', //'#ff073a',
+    format: 'int',
+    options: {key: 'pendency'},
+  },
+  act: {
+    displayName: 'related acts',
+    ts_displayName: 'related acts',
+    table_displayName: 'related acts',
+    color: '#646f6f', //'#ff073a',
+    format: 'int',
+    options: {key: 'act'},
+  },
+  section: {
+    displayName: 'section',
+    ts_displayName: 'section',
+    table_displayName: 'section',
+    color: '#646f6f', //'#ff073a',
+    format: 'int',
+    options: {key: 'section'},
   },
   other: {
     displayName: 'other',
@@ -46,6 +105,14 @@ export const STATISTIC_DEFINITIONS = {
     format: 'int',
     options: {key: 'other'},
   },
+  intpen: {
+    displayName: 'Internet Penetration(per million)',
+    ts_displayName: 'Internet Penetration(per million)',
+    table_displayName: 'internet penetration(per million)',
+    color: '#646f6f', //'#ff073a',
+    format: 'int',
+    options: {key: 'intpen'},
+  }, 
   tested: {
     displayName: 'tested',
     color: '#4b1eaa',
@@ -138,19 +205,58 @@ export const PER_MILLION_OPTIONS = {
 export const NAN_STATISTICS = ['tested', 'testedStates', 'tpr', 'population'];
 
 export const PRIMARY_STATISTICS = [
-  'confirmed',
-  'active',
-  'recovered',
-  'deceased',
+  'total',
+  'pending',
+  'disposed',
+  'judgement',
 ];
 
-export const TABLE_STATISTICS = [...PRIMARY_STATISTICS, 'tested'];
+export const TABLE_STATISTICS = [...PRIMARY_STATISTICS];
 
 export const TABLE_STATISTICS_EXPANDED = Object.keys(
   STATISTIC_DEFINITIONS
 ).filter((statistic) => !['positives', 'testedStates'].includes(statistic));
 
-export const TIMESERIES_STATISTICS = [...PRIMARY_STATISTICS, 'tested'];
+export const TIMESERIES_STATISTICS = [
+  'total',
+  'disposed_yearly',
+  'pending_agg',
+  //'pending',
+  //'disposed',
+];
+
+export const TRENDBAR_STATISTICS = [
+  //'total',
+  //'disposed_yearly',
+  //'pending_agg',
+  'pending',
+  //'disposed',
+];
+
+export const PENDENCY_STATISTICS = [
+  'pendency',
+];
+
+
+export const RELACTS_STATISTICS = [
+  'act',
+];
+
+export const SECTIONS_STATISTICS = [
+  'section',
+];
+
+export const TIMESERIES_TABLE_STATISTICS = [
+  'total',
+  'pending_before',
+  'disposed_yearly',
+  'pending_agg',
+];
+
+export const INTPEN_STATISTICS = [
+  'intpen',
+];
+
 
 export const UPDATES_COUNT = 5;
 

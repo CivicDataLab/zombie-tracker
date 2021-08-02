@@ -31,7 +31,7 @@
           "arcs": [[9, 10, 11, 12, 13, 14, 15]],
           "properties": {
             "dt_code": "114",
-            "district": "Jaisalmer",
+            "district": "Jaiselmer",
             "st_code": "08",
             "year": "2011_c",
             "st_nm": "Rajasthan"
@@ -64,7 +64,7 @@
           "arcs": [[-18, 26, 27, -26, 28, 29, 30, 31]],
           "properties": {
             "dt_code": "110",
-            "district": "Jaipur",
+            "district": "Jaipur District",
             "st_code": "08",
             "year": "2011_c",
             "st_nm": "Rajasthan"
@@ -75,7 +75,7 @@
           "arcs": [[[-13, 32, 33, 34, 35, 36, 37, 38]], [[-11, 39]]],
           "properties": {
             "dt_code": "113",
-            "district": "Jodhpur",
+            "district": "Jodhpur District",
             "st_code": "08",
             "year": "2011_c",
             "st_nm": "Rajasthan"
@@ -141,7 +141,7 @@
           "arcs": [[-14, -39, 37, 57, 58, 59]],
           "properties": {
             "dt_code": "115",
-            "district": "Barmer",
+            "district": "Balotra Barmer",
             "st_code": "08",
             "year": "2011_c",
             "st_nm": "Rajasthan"

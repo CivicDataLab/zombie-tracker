@@ -27,9 +27,10 @@ import React, {useCallback, useEffect, useRef, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
 // Chart margins
-const margin = {top: 15, right: 35, bottom: 25, left: 25};
+const margin = {top: 15, right: 50, bottom: 45, left: 25};
 
 function Timeseries({timeseries, dates, chartType}) {
+
   const {t} = useTranslation();
   const refs = useRef([]);
 
@@ -79,7 +80,7 @@ function Timeseries({timeseries, dates, chartType}) {
       g.attr('class', 'x-axis').call(
         axisBottom(xScale)
           .ticks(numTicksX)
-          .tickFormat((date) => formatDate(date, 'dd MMM'))
+          .tickFormat((date) => formatDate(date, 'yyyy'))
       );
 
     const xAxis2 = (g, yScale) => {
@@ -91,7 +92,7 @@ function Timeseries({timeseries, dates, chartType}) {
       if (yScale(0) !== chartBottom) g.select('.domain').attr('opacity', 0.4);
       else g.select('.domain').attr('opacity', 0);
     };
-
+  
     const yAxis = (g, yScale) =>
       g
         .attr('class', 'y-axis')
@@ -145,6 +146,7 @@ function Timeseries({timeseries, dates, chartType}) {
         .range([chartBottom, margin.top]);
 
       const color = STATISTIC_CONFIGS[statistic].color;
+      const statisticConfig = STATISTIC_CONFIGS[statistic]
 
       /* X axis */
       svg
@@ -180,6 +182,68 @@ function Timeseries({timeseries, dates, chartType}) {
         .attr('cy', (date) =>
           yScale(getStatistic(timeseries[date], chartType, statistic))
         );
+
+      /* Path bars */
+      {/*svg
+        .selectAll('rect')
+        .data(dates, (date) => date)
+        .join((enter) =>
+          enter
+            .append('rect')
+            .attr('fill', color)
+            .attr('stroke', color)
+            .attr('y', (date) => yScale(getStatistic(timeseries[date], chartType, statistic)) )
+            .attr('x', (date) => xScale(parseIndiaDate(date)))
+            .attr("width", 5)
+            .attr("height", 0)
+        )
+        .transition(t)
+        .attr('height', (date) => chartBottom - yScale(getStatistic(timeseries[date], chartType, statistic)) 
+        );  */}     
+
+
+      /* divide */
+      svg.selectAll('line').remove();
+      svg.selectAll('divide')
+        .data(["2015"])
+	.join((enter) =>
+	  enter
+	  .append('line')
+	  .attr('fill', color)
+	  .attr('stroke', color)
+          .style("stroke-dasharray", "1,1")
+	  .attr("y1", 0)
+	  .attr("y2", 0)
+	  .attr("x1", (date) => xScale(parseIndiaDate(date)))
+	  .attr("x2", (date) => xScale(parseIndiaDate(date)))
+        )
+        .transition(t)
+	  .attr("y1", 0)
+	  .attr("y2", chartBottom)
+	  .attr("x1", (date) => xScale(parseIndiaDate(date)))
+	  .attr("x2", (date) => xScale(parseIndiaDate(date)))
+        ;
+
+
+      /* label text */
+      svg.append("text")
+	    .attr("class", "y label")
+	    .attr("text-anchor", "end")
+	    .attr("y", chartRight + 35)
+	    .attr("dy", ".75em")
+            .attr("x", (-30))
+	    .attr("transform", "rotate(-90)")
+            .attr("letter-spacing","2")
+	    .text("Total Cases");
+
+      svg.append("text")             
+	.attr("transform",
+	    "translate(" + (width/2) + " ," + 
+		           (height + margin.top - margin.bottom + 20) + ")")
+	.style("text-anchor", "middle")
+        .attr("letter-spacing","2")
+	.text(statisticConfig.x_label);
+
 
       if (chartType === 'total') {
         svg
@@ -314,7 +378,6 @@ function Timeseries({timeseries, dates, chartType}) {
 
   return (
     <React.Fragment>
-      <div className="Timeseries">
         {TIMESERIES_STATISTICS.map((statistic, index) => {
           const delta = getStatisticDelta(statistic, index);
           const statisticConfig = STATISTIC_CONFIGS[statistic];
@@ -323,15 +386,15 @@ function Timeseries({timeseries, dates, chartType}) {
               key={statistic}
               className={classnames('svg-parent fadeInUp', `is-${statistic}`)}
               ref={wrapperRef}
-              style={trail[index]}
+              style={trail[index], {marginRight:'2%'}}
             >
               {highlightedDate && (
                 <div className={classnames('stats', `is-${statistic}`)}>
                   <h5 className="title">
-                    {t(capitalize(statisticConfig.displayName))}
+                    {t(capitalize(statisticConfig.ts_displayName))}
                   </h5>
                   <h5 className="title">
-                    {formatDate(highlightedDate, 'dd MMMM')}
+                    {formatDate(highlightedDate, 'yyyy')}
                   </h5>
                   <div className="stats-bottom">
                     <h2>
@@ -347,13 +410,13 @@ function Timeseries({timeseries, dates, chartType}) {
                         statistic
                       )}
                     </h2>
-                    <h6>{`${delta > 0 ? '+' : ''}${formatNumber(
+                    {/*<h6>{`${delta > 0 ? '+' : ''}${formatNumber(
                       delta,
                       statisticConfig.format !== 'short'
                         ? statisticConfig.format
                         : 'int',
                       statistic
-                    )}`}</h6>
+                    )}`}</h6> */}
                   </div>
                 </div>
               )}
@@ -370,7 +433,6 @@ function Timeseries({timeseries, dates, chartType}) {
             </div>
           );
         })}
-      </div>
     </React.Fragment>
   );
 }

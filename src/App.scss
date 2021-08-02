@@ -73,7 +73,7 @@ $dark-m-purple-mid: #9673b9bb;
 $dark-m-purple-light: #40008050;
 
 * {
-  font-family: 'archia';
+  font-family: 'Roboto', sans-serif;
 }
 
 html {
@@ -241,19 +241,19 @@ h6 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin-left: 9rem;
+  margin-left: 3rem;
   margin-right: 3rem;
 
   .home-left,
   .home-right {
     display: flex;
     flex-direction: column;
-    width: 34rem;
+    width: 35rem;
   }
 
   .home-left {
     margin-right: 2.5rem;
-    min-height: 60rem;
+    min-height: 40rem;
   }
 
   .home-right {
@@ -317,9 +317,10 @@ h6 {
   align-self: center;
   display: flex;
   flex-direction: row;
-  height: 5.25rem;
-  justify-content: space-between;
+  // height: 5.25rem;
+  justify-content: center; // space-between;
   margin-bottom: 1rem;
+  // margin-Top: 2rem;
   position: relative;
   width: 100%;
 
@@ -334,7 +335,7 @@ h6 {
     }
 
     h1 {
-      color: $brick;
+      color: #0d182a; //$brick;
       max-width: 20rem;
     }
 
@@ -379,14 +380,14 @@ h6 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin-left: 8rem;
+  margin-left: 3rem;
   margin-right: 3rem;
 
   .state-left,
   .state-right {
     display: flex;
     flex-direction: column;
-    width: 34rem;
+    width: 35rem;
   }
 
   .state-left {
@@ -673,7 +674,7 @@ h6 {
   position: relative;
 
   .state-name {
-    background: $brick-light;
+    background: $white; //$brick-light;
     border-radius: 5px;
     cursor: pointer;
     padding: .25rem;
@@ -789,7 +790,7 @@ h6 {
 .Search {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   position: relative;
   width: 100%;
 
@@ -813,9 +814,9 @@ h6 {
     -moz-box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
     -webkit-appearance: none !important;
     -webkit-box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
-    background: #fff;
+    background: #c6c3c3;
     border: 0;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
     color: $gray;
     font-size: 1rem;
@@ -1173,14 +1174,14 @@ h6 {
 }
 
 .header {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  max-width: 40rem;
-  width: 100%;
+  // align-self: center;
+  // display: flex;
+  // flex-direction: column;
+  // max-width: 40rem;
+  // width: 100%;
 
   & > * {
-    align-self: center;
+    // align-self: center;
   }
 
   .actions {
@@ -1350,7 +1351,7 @@ h6 {
 .MapSwitcher {
   align-self: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;  // row
   justify-content: space-between;
   position: absolute;
   width: 100%;
@@ -1358,16 +1359,19 @@ h6 {
   .highlight {
     pointer-events: none;
     position: absolute;
-    width: calc(25%) !important;
+    width: 100%; //calc(25%) !important;
   }
 
   .highlight,
   .clickable {
-    border-radius: 5px;
+    border-radius: 16px;
     cursor: pointer;
-    height: 13rem;
-    width: calc(25%);
+    height: 96px; //10rem; //5rem; // 11rem;
+    width: 50%; //100%; // calc(25%);
     z-index: 10;
+    margin:auto;
+    margin-bottom:20px;
+    margin-left:25%;
   }
 
   .clickable {
@@ -1396,19 +1400,31 @@ h6 {
 .Level {
   align-self: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column; // row;
   justify-content: space-between;
   width: 100%;
 
   .level-item {
     display: flex;
-    flex-direction: column;
-    width: calc(25%);
+    flex-direction: column; //row; 
+    width: 50%; //100% // calc(25%);
+    background: rgba(216, 207, 199, 0.5); //#F3F3F5;
+    border-radius: 16px; //40px;
+    margin: auto;
+    //margin-left: 50%;
+    margin-bottom:20px;
+    height:96px; //10rem;
+    padding:10px 0px 0px 30px; //30px;
 
     & > * {
-      align-self: center;
+      align-self: flex-start; //center;
     }
   }
+   // .level-item:nth-child(n+1){background:#d8cfc7;}
+   // .level-item:nth-child(n+2){background:#646f6f;}
+   // .level-item:nth-child(n+3){background:#f9b950;}
+   // .level-item:nth-child(n+4){background:#bd4227;}
+
 
   h1,
   h5 {
@@ -1426,7 +1442,7 @@ h6 {
   h5 {
     font-weight: 600;
     overflow-wrap: break-word;
-    text-align: center;
+    text-align: left; //center;
     width: 100%;
   }
 
@@ -1688,10 +1704,11 @@ abbr {
 }
 
 .table-container {
-  align-self: center;
+  align-self: normal; // center;
   margin-bottom: 2.5rem;
   overflow-x: auto;
-  width: 100%;
+  max-height:35rem;
+  min-height:30rem;
 }
 
 .table {
@@ -1773,7 +1790,7 @@ abbr {
 
     &:nth-child(odd) {
       .cell {
-        background: $gray-light;
+        background: rgba(216, 207, 199, 0.5); //$gray-light;
       }
     }
 
@@ -1806,7 +1823,7 @@ abbr {
     .cell {
       align-items: center;
       border-radius: 3px;
-      color: $gray;
+      color: #0D182A; //$gray;
       display: flex;
       flex-direction: row;
       margin-bottom: .25rem;
@@ -1821,7 +1838,7 @@ abbr {
       }
 
       &:first-child {
-        background: $gray-hover-darker-opaque;
+        // background: $gray-hover-darker-opaque;
         flex-basis: 7rem;
         flex-grow: 0;
         flex-shrink: 0;
@@ -1921,7 +1938,7 @@ abbr {
       }
 
       &.heading {
-        background: $gray-light-opaque;
+        background: #D8CFC7; //$gray-light-opaque;
         font-size: 13px;
         font-weight: 900;
         padding: 1.25rem .5rem .75rem;
@@ -2003,7 +2020,6 @@ abbr {
 .map-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .MapExplorer {
@@ -2028,6 +2044,7 @@ abbr {
     overflow: visible;
     position: relative;
     width: 90%;
+    height:30rem;
 
     &.maplegend {
       margin-top: 0.6rem;
@@ -2043,8 +2060,8 @@ abbr {
 
       text {
         fill: $gray;
-        font-size: 10px;
-        font-weight: 600;
+        font-size: 15px;
+        font-weight: 500;
         text-align: right;
       }
     }
@@ -2544,7 +2561,7 @@ abbr {
   align-self: center;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 2rem);
+  width: 100%; //calc(100% - 2rem);
 
   &.stickied {
     position: sticky !important;
@@ -2560,11 +2577,13 @@ abbr {
   .state-selection {
     display: flex;
     flex-direction: row;
-    margin-top: 1rem;
-    max-width: calc(100% - 0.6rem);
+    //margin-top: 1rem;
+    width: 50%;
+    justify-content: flex-end;
+    //max-width: calc(100% - 0.6rem);
 
     .dropdown {
-      min-width: calc(60%);
+      min-width: calc(70%);
 
       select {
         appearance: none;
@@ -2591,7 +2610,7 @@ abbr {
     }
 
     .reset-icon {
-      margin: auto;
+      // margin: auto;
       margin-left: 0.75rem;
       margin-top: 0.5rem;
 
@@ -2617,7 +2636,7 @@ abbr {
   width: 100%;
 
   .svg-parent {
-    height: 10rem;
+    height: 12rem;
     margin-bottom: 1rem;
 
     &.is-confirmed {
@@ -2666,12 +2685,14 @@ abbr {
   align-self: center;
   position: relative;
   width: 100%;
+  display:inline-flex;
 
   h1 {
     color: $gray;
     margin: 0;
-    margin-bottom: 2rem;
-    text-align: center;
+    // margin-bottom: 2rem;
+    text-align: left;
+    width:50%;
   }
 
   .scale-modes {
@@ -2712,6 +2733,8 @@ abbr {
     margin-left: 1rem;
   }
 }
+
+
 
 .disabled {
   input {
@@ -2769,9 +2792,11 @@ input {
 .Timeseries,
 .Minigraph {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; // column;
   margin-top: 1rem;
   width: 100%;
+  flex-wrap:wrap;
+  justify-content:center;
 
   .stats {
     border-radius: 3px;
@@ -2793,13 +2818,15 @@ input {
 
     h5 {
       &.title {
-        color: $cherry-mid;
+        color: #111352; //$cherry-mid;
+        font-weight: 400;
       }
     }
 
     h2,
     h6 {
-      color: $cherry;
+      color: #111352; //$cherry;
+      font-weight: 700;
     }
 
     .stats-bottom {
@@ -2879,28 +2906,28 @@ input {
 
   .svg-parent {
     align-self: center;
-    background: $cherry-light;
-    border-radius: 5px;
+    background: rgba(216, 207, 199, 0.5); //#E5F7F8;	//$cherry-light;
+    border-radius: 16px;
     display: flex;
     position: relative;
-    width: 100%;
+    width: 48%; // 100%;
 
     svg {
       width: 100%;
 
       .domain,
       .tick {
-        stroke: $cherry;
+        stroke: $gray; //$cherry;
         stroke-width: 1.5;
 
         line {
-          stroke: $cherry;
+          stroke: #111352; //$cherry;
           stroke-width: 1.5;
         }
       }
 
       text {
-        color: $cherry-mid;
+        color: #111352; // $cherry-mid;
         font-size: 9px;
         font-weight: 600;
         stroke: transparent;
@@ -3627,10 +3654,15 @@ footer {
   }
 }
 
+
 @media (min-width: 769px) {
   .Home,
   .State {
-    padding-top: 5rem;
+    padding-top: 3rem;
+  }
+
+  .fadeInUp.wide_timeseries{
+    width:75%;
   }
 
   .Navbar {
@@ -3701,7 +3733,7 @@ footer {
     }
   }
 
-  .dark-mode {
+  .dark-mode1 {
     .Navbar,
     .expand,
     .navbar-right {
@@ -3770,7 +3802,7 @@ footer {
     flex-direction: column;
     margin-left: 0;
     margin-right: 0;
-    padding-top: 1rem;
+    padding-top: 3rem;
     width: 100%;
 
     .home-left,
@@ -4029,7 +4061,7 @@ footer {
 
 // Dark Mode
 
-.dark-mode {
+.dark-mode1 {
   background: #161625 !important;
   color: #bdbdbd;
 
@@ -4426,5 +4458,36 @@ footer {
   100% {
     opacity: 0;
     transform: translateY(20px);
+  }
+}
+
+
+
+.home-full-width{
+	display: flex;
+	flex-direction: row;
+	width: 75rem;
+        justify-content: space-between;
+
+}
+
+.notif{
+	color: #0d182a;
+	background-color: #f2f1f0;
+	position: relative;
+	padding: .75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid #d8cfc7;
+	border-radius: .25rem;
+}
+
+
+@media (max-width: 769px) {
+  .home-full-width {
+    width: calc(100%);
+  }
+
+  .TimeseriesExplorer{
+   margin:auto;
   }
 }

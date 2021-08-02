@@ -32,17 +32,17 @@ function StateHeader({data, stateCode}) {
     <div className="StateHeader">
       <div className="header-left">
         <StateDropdown {...{stateCode}} hyperlink={false} trail={trail[0]} />
-        {data?.meta?.['last_updated'] && (
+        {/*{data?.meta?.['last_updated'] && (
           <h5 className="fadeInUp" style={trail[1]}>
             {`Last Updated on ${formatDate(
               data.meta.last_updated,
               'dd MMM, p'
             )} IST`}
           </h5>
-        )}
+        )}*/}
       </div>
 
-      <div className="header-right fadeInUp" style={trail[2]}>
+      {/*<div className="header-right fadeInUp" style={trail[2]}>
         <h5>{t('Tested')}</h5>
         <animated.h2>
           {spring.total.interpolate((total) => formatNumber(Math.floor(total)))}
@@ -60,7 +60,7 @@ function StateHeader({data, stateCode}) {
             </a>
           </h5>
         )}
-      </div>
+      </div>*/}
     </div>
   );
 }

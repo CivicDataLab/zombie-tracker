@@ -5,66 +5,74 @@ import Navbar from './components/Navbar';
 import React, {lazy, useState, Suspense, useEffect} from 'react';
 import {Route, Redirect, Switch, useLocation} from 'react-router-dom';
 import useDarkMode from 'use-dark-mode';
+import { addDays } from 'date-fns';
 
 const Home = lazy(() => import('./components/Home'));
 const About = lazy(() => import('./components/About'));
 const State = lazy(() => import('./components/State'));
-const LanguageSwitcher = lazy(() => import('./components/LanguageSwitcher'));
+const Privacy = lazy(() => import('./components/Privacy'));
+
 
 const App = () => {
-  const darkMode = useDarkMode(false);
-  const [showLanguageSwitcher, setShowLanguageSwitcher] = useState(false);
+  const darkMode1 = useDarkMode(false);
   const location = useLocation();
+  const [message, setMessage] = useState("Total");
+  const [state, setState] = useState([
+	  {
+	    startDate: new Date(),
+	    endDate: addDays(new Date(), 7),
+	    key: 'selection'
+	  }
+	]);
 
   const pages = [
     {
-      pageLink: '/',
+      pageLink: '/viz/',
       view: Home,
-      displayName: 'Home',
+      displayName: 'Primary',
       showInNavbar: true,
     },
     {
-      pageLink: '/blog',
+      pageLink: '/viz/',
       view: Blog,
-      displayName: 'Blog',
+      displayName: 'Secondary',
       showInNavbar: true,
     },
     {
-      pageLink: '/about',
+      pageLink: '/viz/',
       view: About,
-      displayName: 'About',
+      displayName: 'Methodlogy',
       showInNavbar: true,
     },
     {
-      pageLink: '/state/:stateCode',
+      pageLink: '/viz/state/TT',
+      view: Home,
+      displayName: 'Primary',
+      showInNavbar: false,
+    },
+    {
+      pageLink: '/viz/state/:stateCode',
       view: State,
       displayName: 'State',
       showInNavbar: false,
     },
   ];
 
-  useEffect(() => {
-    if (showLanguageSwitcher) {
-      // For Chrome, Firefox, IE and Opera
-      document.documentElement.scrollTo({top: 0, behavior: 'smooth'});
-      // For Safari
-      document.body.scrollTo({top: 0, behavior: 'smooth'});
-    }
-  }, [showLanguageSwitcher]);
+
 
   return (
     <div className="App">
-      <Suspense fallback={<div />}>
+      {/*<Suspense fallback={<div />}>
         <LanguageSwitcher
           {...{showLanguageSwitcher, setShowLanguageSwitcher}}
         />
-      </Suspense>
+      </Suspense>*/}
 
-      <Navbar
+      {/*<Navbar
         pages={pages}
-        {...{darkMode}}
+        {...{darkMode1}}
         {...{showLanguageSwitcher, setShowLanguageSwitcher}}
-      />
+      />*/}
 
       <Suspense fallback={<div />}>
         <Switch location={location}>
@@ -73,12 +81,12 @@ const App = () => {
               <Route
                 exact
                 path={page.pageLink}
-                render={({match}) => <page.view />}
+                render={({match}) => <page.view {...{message, setMessage, state, setState}}/>}
                 key={index}
               />
             );
           })}
-          <Redirect to="/" />
+          <Redirect to="/error" />
         </Switch>
       </Suspense>
     </div>

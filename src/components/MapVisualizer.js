@@ -137,9 +137,12 @@ function MapVisualizer({
       const stateData = data[stateCode];
       const districtData = stateData?.districts?.[district];
       let n;
+      let m;
       if (district) n = getTotalStatistic(districtData, statistic);
       else n = getTotalStatistic(stateData, statistic);
-      const color = n === 0 ? '#ffffff00' : mapScale(n);
+      if (district) m = (typeof districtData == 'undefined') ? 0 : 1;
+      else m = (typeof stateData == 'undefined') ? 0 : 1;
+      const color = (m !== 0 || district ? (n === 0 ? '#ffffff00' : mapScale(n)) : "#c4c2c2");
       return color;
     },
     [data, mapScale, statistic]
@@ -187,10 +190,13 @@ function MapVisualizer({
           let n;
           if (district) n = getTotalStatistic(districtData, statistic);
           else n = getTotalStatistic(stateData, statistic);
-          return (
-            formatNumber(100 * (n / (statisticTotal || 0.001))) +
+	  let m;
+     	  if (district) m = (typeof districtData == 'undefined') ? 0 : 1;
+          else m = (typeof stateData == 'undefined') ? 0 : 1;
+          return ( m !== 0 || district ?
+            formatNumber(n) + ' Cases, ' + formatNumber(100 * (n / (statisticTotal || 0.001))) +
             '% from ' +
-            toTitleCase(district ? district : state)
+            toTitleCase(district ? district : state) : ("No data available")
           );
         }
       });
@@ -206,10 +212,10 @@ function MapVisualizer({
 
     svg.attr('pointer-events', 'auto').on('click', () => {
       onceTouchedRegion.current = null;
-      setRegionHighlighted({
+      {/* setRegionHighlighted({
         stateCode: mapCode,
         districtName: null,
-      });
+      });*/}
     });
   }, [mapCode, setRegionHighlighted]);
 
@@ -232,10 +238,10 @@ function MapVisualizer({
             .attr('stroke-opacity', 0)
             .style('cursor', 'pointer')
             .on('mouseenter', (d) => {
-              setRegionHighlighted({
+              {/* setRegionHighlighted({
                 stateCode: STATE_CODES[d.properties.st_nm],
                 districtName: d.properties.district,
-              });
+              }); */}
             })
             .attr('fill', '#fff0')
             .attr('stroke', '#fff0')
@@ -269,7 +275,7 @@ function MapVisualizer({
         svg.select('.regions').selectAll('path').attr('pointer-events', 'none');
         // Switch map
         history.push(
-          `/state/${stateCode}${window.innerWidth < 769 ? '#MapExplorer' : ''}`
+          `/viz/state/${stateCode}${window.innerWidth < 769 ? '#MapExplorer' : ''}`
         );
       })
       .call((sel) => {
@@ -350,13 +356,13 @@ function MapVisualizer({
         (exit) => exit.call((exit) => exit.transition(T).attr('r', 0).remove())
       )
       .on('mouseenter', (feature) => {
-        setRegionHighlighted({
+        {/* setRegionHighlighted({
           stateCode: STATE_CODES[feature.properties.st_nm],
           districtName:
             mapView === MAP_VIEWS.STATES
               ? null
               : feature.properties.district || UNKNOWN_DISTRICT_KEY,
-        });
+        }); */}
       })
       .on('touchstart', (feature) => {
         if (onceTouchedRegion.current === feature)

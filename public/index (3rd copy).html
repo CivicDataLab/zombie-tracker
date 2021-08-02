@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/vizbase.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/vizpages.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet"> 
+
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6c757d" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Primary Meta Tags -->
+    <title>66A Zombie Tracker</title>
+    <meta
+      name="title"
+      content="66A Zombie Tracker"
+    />
+    <meta
+      name="description"
+      content="A volunteer-driven crowdsourced effort to track the coronavirus in India. A detailed country map shows the extent of the coronavirus outbreak, with tables of the number of cases by state and district."
+    />
+    <meta
+      name="keywords"
+      content="66a, IT act, 66A , 66(A)"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://api.covid19india.org/min/data.min.json"
+      as="fetch"
+    />
+    <link
+      rel="preconnect"
+      href="https://api.covid19india.org/min/timeseries.min.json"
+      as="fetch"
+    />
+
+    <!-- Font Preloading -->
+    <link
+      rel="preload"
+      href="/fonts/Archia/archia-semibold-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Archia/archia-medium-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Archia/archia-bold-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+      /* font-face declarations for preloaded fonts */
+      /* These are the only 3 fonts being used.
+      font-face declarations for thin, regular and light fonts should be added as needed */
+      @font-face {
+        font-family: 'Archia';
+        src: url('/fonts/Archia/archia-semibold-webfont.eot');
+        src: local('Archia'),
+          url('/fonts/Archia/archia-semibold-webfont.eot?#iefix')
+            format('embedded-opentype'),
+          url('/fonts/Archia/archia-semibold-webfont.woff2') format('woff2'),
+          url('/fonts/Archia/archia-semibold-webfont.woff') format('woff'),
+          url('/fonts/Archia/archia-semibold-webfont.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Archia';
+        src: url('/fonts/Archia/archia-medium-webfont.eot');
+        src: local('Archia'),
+          url('/fonts/Archia/archia-medium-webfont.eot?#iefix')
+            format('embedded-opentype'),
+          url('/fonts/Archia/archia-medium-webfont.woff2') format('woff2'),
+          url('/fonts/Archia/archia-medium-webfont.woff') format('woff'),
+          url('/fonts/Archia/archia-medium-webfont.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Archia';
+        src: url('/fonts/Archia/archia-bold-webfont.eot');
+        src: local('Archia'),
+          url('/fonts/Archia/archia-bold-webfont.eot?#iefix')
+            format('embedded-opentype'),
+          url('/fonts/Archia/archia-bold-webfont.woff2') format('woff2'),
+          url('/fonts/Archia/archia-bold-webfont.woff') format('woff'),
+          url('/fonts/Archia/archia-bold-webfont.ttf') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+	.btn-group-vertical > .btn-group::after, .btn-group-vertical > .btn-group::before, .btn-toolbar::after, .btn-toolbar::before, .clearfix::after, .clearfix::before, .container-fluid::after, .container-fluid::before, .container::after, .container::before, .dl-horizontal dd::after, .dl-horizontal dd::before, .form-horizontal .form-group::after, .form-horizontal .form-group::before, .modal-footer::after, .modal-footer::before, .modal-header::after, .modal-header::before, .nav::after, .nav::before, .navbar-collapse::after, .navbar-collapse::before, .navbar-header::after, .navbar-header::before, .navbar::after, .navbar::before, .pager::after, .pager::before, .panel-body::after, .panel-body::before, .row::after, .row::before {
+	content: unset;
+}
+
+	html {
+	font-size: unset;
+	}
+
+	div.Search {
+	-webkit-box-sizing: unset;
+	-moz-box-sizing: unset;
+	box-sizing: content-box;
+	}
+
+	div.search-input-wrapper {
+	-webkit-box-sizing: unset;
+	-moz-box-sizing: unset;
+	box-sizing: content-box;
+	}
+
+	input {
+	-webkit-box-sizing: unset;
+	-moz-box-sizing: unset;
+	box-sizing: content-box;
+	}
+
+	}
+    </style>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.civicdatalab.in" />
+    <meta
+      property="og:title"
+      content="Coronavirus in India: Latest Map and Case Count"
+    />
+    <meta
+      property="og:description"
+      content="A volunteer-driven crowdsourced effort to track the coronavirus in India. A detailed country map shows the extent of the coronavirus outbreak, with tables of the number of cases by state and district."
+    />
+    <meta
+      property="og:image"
+      content="https://www.covid19india.org/thumbnail.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.covid19india.org" />
+    <meta
+      property="twitter:title"
+      content="Coronavirus in India: Latest Map and Case Count"
+    />
+    <meta name="twitter:site" value="@covid19indiaorg" />
+    <meta
+      property="twitter:description"
+      content="A volunteer-driven crowdsourced effort to track the coronavirus in India. A detailed country map shows the extent of the coronavirus outbreak, with tables of the number of cases by state and district."
+    />
+    <meta
+      property="twitter:image"
+      content="https://www.covid19india.org/thumbnail.png"
+    />
+
+
+
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+
+<section class="header" style="width:100%;">
+      <div class="header__info">
+        <a href="/"><img class="header__info__brand" src="/static/img/LOGO.svg" alt="brand" /></a>
+        <p class="header__info__description">
+          The Zombie Tracker is a platform, which monitors cases which include a
+          charge under
+          <span>Section 66A of the Information Technology Act</span> (as amended
+          2008)
+        </p>
+      </div>
+      <div class="header__nav">
+        <ul class="header__nav__navbar">
+          <li><a href="http://35.154.207.72/viz">Tracker</a></li>
+          <li><a href="http://35.154.207.72/methodology">Methodology</a></li>
+          <li class="dropdown">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Recommendations <span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="http://35.154.207.72/recommendations/66a">66A</a></li>
+              <li><a href="http://35.154.207.72/recommendations/opendata">OpenData</a></li>
+              <li><a href="http://35.154.207.72/recommendations/general">General</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Glossary <span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="http://35.154.207.72/glossary/process">Process</a></li>
+              <li><a href="http://35.154.207.72/glossary/terms">Terms</a></li>
+            </ul>
+          </li>
+          <li><a href="http://35.154.207.72/blog">Blog</a></li>
+          <li><a href="http://35.154.207.72/about-us">About Us</a></li>
+        </ul>
+      </div>
+    </section>
+    
+
+
+
+    <div id="root" style = "min-height:70vh;"></div>
+
+        <a target="_blank" rel="noreferrer noopener"  href="https://internetfreedom.in/donate" class="btn btn-default fab"><i class="fa fa-money"></i></a>
+
+	 <footer id="myFooter" style="margin-bottom:0;">
+		<div class="container-fluid" style="width:100%;">
+		    <div class="row">
+		        <div class="col-sm-4" style="display:flex; align-items:center;">
+		            <h2 class="logo col-sm-4 col-xs-6"><a href="https://internetfreedom.in/" target="_blank"><img class="img-fluid" src="/static/img/iff_logo_horizontal_white.svg"></a></h2>
+                            <h2 class="logo col-sm-4 col-xs-6"><a href="https://civicdatalab.in/" target="_blank"><img class="img-fluid" src="/static/img/CDL_Logo-Single Color.png"></a></h2>
+                            <!-- <h3 class="logo col-sm-4" style="text-align:center;"><a href="https://tech4dev.com/" target="_blank" style="font-size: 20px;">Tech4Dev</a></h3> -->
+		        </div>
+		        <div class="col-sm-4">
+                            <h5 style="text-align:center;">66A Tracker</h5>
+                            <h6 style="text-align:center;">We Stand against 66A</h6>
+		            <div class="social-networks">
+		                <a href="https://twitter.com/internetfreedom" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+		                <!-- <a href="https://www.facebook.com/66a" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> -->
+		                <a href="https://github.com/CivicDataLab/stop-66A"  target="_blank" class="google"><i class="fa fa-github"></i></a>
+				<a href="http://35.154.207.72/reporting"  target="_blank" class="google"><i class="fa fa-envelope"></i></a>
+                                <a href="https://forum.internetfreedom.in/"  target="_blank" class="google"><i class="fa fa-forumbee"></i></a>
+		            </div>
+		        </div>
+		        <div class="col-sm-4" style="margin-top:30px;padding-top:2%;">
+		        <ul>
+		            <li><a target="_blank" href="http://35.154.207.72/tc/">Terms of Use</a></li>
+		            <li><a target="_blank" href="http://35.154.207.72/privacy/">Privacy Policy</a></li>
+		        </ul>
+		    </div>
+		    </div>
+		    
+		</div>
+		<div class="footer-copyright" style="align-self:unset;">
+		    <p style="margin-bottom:10px;">All work under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 (CC-BY)</a></p>
+                    <p>We thank the <a href="https://chintugudiya.org/" target="_blank">ChintuGudiya Foundation (Project Tech4Dev)</a> for funding the first phase of the project. </p>
+		</div>
+	 </footer>
+
+  </body>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script>
+    // Insert this script in your index.html right after the <body> tag.
+    // This will help to prevent a flash if dark mode is the default.
+    (function () {
+      // Change these if you use something different in your hook.
+      var storageKey = 'darkMode';
+      var classNameDark = 'dark-mode';
+      var classNameLight = 'light-mode';
+
+      function setClassOnDocumentBody(darkMode) {
+        document.body.classList.add(darkMode ? classNameDark : classNameLight);
+        document.body.classList.remove(
+          darkMode ? classNameLight : classNameDark
+        );
+      }
+
+      var preferDarkQuery = '(prefers-color-scheme: dark)';
+      var mql = window.matchMedia(preferDarkQuery);
+      var supportsColorSchemeQuery = mql.media === preferDarkQuery;
+      var localStorageTheme = null;
+      try {
+        localStorageTheme = localStorage.getItem(storageKey);
+      } catch (err) {}
+      var localStorageExists = localStorageTheme !== null;
+      if (localStorageExists) {
+        localStorageTheme = JSON.parse(localStorageTheme);
+      }
+
+      // Determine the source of truth
+      if (localStorageExists) {
+        // source of truth from localStorage
+        setClassOnDocumentBody(localStorageTheme);
+      } else if (supportsColorSchemeQuery) {
+        // source of truth from system
+        setClassOnDocumentBody(mql.matches);
+        localStorage.setItem(storageKey, mql.matches);
+      } else {
+        // source of truth from document.body
+        var isDarkMode = document.body.classList.contains(classNameDark);
+        localStorage.setItem(storageKey, JSON.stringify(isDarkMode));
+      }
+    })();
+  </script>
+
+  <!-- Google Analytics -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      (i[r] =
+        i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        }),
+        (i[r].l = 1 * new Date());
+
+      setTimeout(() => {
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      }, 3000); // Wait 3 seconds
+    })(
+      window,
+      document,
+      'script',
+      'https://www.google-analytics.com/analytics.js',
+      'ga'
+    );
+
+    ga('create', 'UA-160698988-1', {
+      site_speed_sample_rate: 1,
+      sample_rate: 1,
+    });
+    ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
+</html>

@@ -19,13 +19,13 @@ function PureLevelItem({statistic, total, delta}) {
     delta: delta,
     config: SPRING_CONFIG_NUMBERS,
   });
-
+  
   const statisticConfig = STATISTIC_CONFIGS[statistic];
 
   return (
     <React.Fragment>
-      <h5>{t(capitalize(statisticConfig.displayName))}</h5>
-      <animated.h4>
+      <h2 style={{marginTop: '0'}}>{t(capitalize(statisticConfig.displayName))}</h2>
+      {/*<animated.h4>
         {statistic !== 'active' ? (
           delta > 0 ? (
             spring.delta.interpolate(
@@ -38,7 +38,7 @@ function PureLevelItem({statistic, total, delta}) {
         ) : (
           '\u00A0'
         )}
-      </animated.h4>
+      </animated.h4>*/}
       <animated.h1>
         {spring.total.interpolate((total) =>
           formatNumber(total, statisticConfig.format, statistic)
